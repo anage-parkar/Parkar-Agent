@@ -1,0 +1,3 @@
+This is a test file to verify that the website/ folder is no longer connected to parkar-main-website repo.
+If this file appears in parkar-main-website repo = still connected (BAD)
+If this file does NOT appear in parkar-main-website repo = fully independent (GOOD)
