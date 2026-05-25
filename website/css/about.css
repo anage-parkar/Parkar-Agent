@@ -1,0 +1,754 @@
+/* =============================================
+   PARKAR.IN – About Page Styles
+   css/about.css
+   Used by: pages/Company/About.html
+   ============================================= */
+
+/* ── Hide the __ line before section labels on about page ── */
+.section-label::before { display: none !important; }
+
+/* ── Shared overrides (solutions.css already loaded) ── */
+body {
+  background-color: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body::-webkit-scrollbar { display: none; }
+
+/* ── fade-up / fade-in reveal ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.72s ease, transform 0.72s ease;
+}
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.72s ease;
+}
+.fade-up.visible,
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.about-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 60% at 65% 40%, rgba(27,174,159,0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 5% 80%, rgba(27,174,159,0.05) 0%, transparent 55%),
+    var(--navy);
+}
+
+.about-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.about-hero-content {
+  max-width: 560px;
+}
+
+.about-hero-h1 {
+  font-family: var(--font-head);
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 700;
+  line-height: 1.13;
+  letter-spacing: -0.5px;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.about-hero-desc {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+/* Stats Row */
+.about-hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 28px 0 0;
+}
+
+.about-stat:last-child { padding-right: 0; }
+
+.about-stat-number {
+  font-family: var(--font-head);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.about-stat-label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.4;
+}
+
+.about-stat-divider {
+  width: 1px;
+  height: 48px;
+  background: rgba(255,255,255,0.12);
+  margin: 0 28px;
+  flex-shrink: 0;
+}
+
+/* Right: Visual */
+.about-hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.about-hero-img-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  border-radius: 16px;
+  overflow: visible;
+}
+
+.about-hero-img-wrap img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+/* "10+ Years of innovation" floating badge */
+.about-hero-badge {
+  position: absolute;
+  bottom: -20px;
+  left: -24px;
+  background: var(--navy-mid);
+  border: 1px solid rgba(27,174,159,0.25);
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 20px 48px rgba(0,0,0,0.45);
+  backdrop-filter: blur(12px);
+  z-index: 2;
+}
+
+.about-hero-badge-number {
+  font-family: var(--font-head);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--teal);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.about-hero-badge-text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  white-space: nowrap;
+}
+
+
+/* ═══════════════════════════════════════════
+   OUR PURPOSE
+═══════════════════════════════════════════ */
+.about-purpose {
+  padding: 120px 0;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-top: 1px solid var(--border);
+}
+
+.about-purpose-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-purpose-img {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 500px;
+}
+
+.about-purpose-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.6s ease;
+}
+
+.about-purpose-img:hover img {
+  transform: scale(1.03);
+}
+
+.about-purpose-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.about-purpose-content .section-label {
+  margin-bottom: 20px;
+}
+
+.about-purpose-text {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--white);
+  margin-bottom: 40px;
+  letter-spacing: -0.2px;
+}
+
+.about-cta-btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  background: var(--teal) !important;
+  color: #fff !important;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 4px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+.about-cta-btn:hover {
+  background: var(--teal-dark) !important;
+  transform: translateY(-1px);
+}
+
+
+/* ═══════════════════════════════════════════
+   OUR VISION
+═══════════════════════════════════════════ */
+.about-vision {
+  padding: 120px 0;
+  background: var(--navy);
+  border-top: 1px solid var(--border);
+}
+
+.about-vision-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-vision-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-vision-content .section-label {
+  margin-bottom: 20px;
+}
+
+.about-vision-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.about-vision-desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 32px;
+  max-width: 500px;
+}
+
+/* Vision list */
+.about-vision-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-vision-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+}
+
+.vision-check {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Arrow link */
+.about-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--teal);
+  transition: gap 0.2s ease;
+}
+
+.about-link-arrow svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.about-link-arrow:hover {
+  gap: 12px;
+}
+
+.about-link-arrow:hover svg {
+  transform: translateX(2px);
+}
+
+/* Vision image */
+.about-vision-img {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 520px;
+}
+
+.about-vision-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.6s ease;
+}
+
+.about-vision-img:hover img {
+  transform: scale(1.03);
+}
+
+
+/* ═══════════════════════════════════════════
+   THE ORIGIN OF PARKAR
+═══════════════════════════════════════════ */
+.about-origin {
+  padding: 100px 0 60px;
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border);
+}
+
+.about-origin-top {
+  max-width: 780px;
+  margin-bottom: 32px;
+}
+
+.about-origin-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(30px, 3.8vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.about-origin-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.62);
+}
+
+/* Year Tabs */
+.about-year-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-year-tabs::-webkit-scrollbar { display: none; }
+
+.year-tab {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 12px 20px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease;
+  letter-spacing: 0.3px;
+  margin-bottom: -1px;
+}
+
+.year-tab:hover {
+  color: rgba(255,255,255,0.75);
+}
+
+.year-tab.active {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
+
+
+/* ═══════════════════════════════════════════
+   OUR JOURNEY
+═══════════════════════════════════════════ */
+.about-journey {
+  padding: 20px 0 80px;
+  background: var(--navy-mid);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-journey-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Left: Content */
+.about-journey-content {
+  position: sticky;
+  top: 100px;
+}
+
+.about-journey-content .section-label {
+  margin-bottom: 16px;
+}
+
+.about-journey-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  color: var(--white);
+  margin-bottom: 48px;
+}
+
+/* Year panels */
+.journey-panels {
+  position: relative;
+}
+
+.journey-panel {
+  display: none;
+}
+
+.journey-panel.active {
+  display: block;
+  animation: panelFadeIn 0.4s ease forwards;
+}
+
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.journey-year {
+  font-family: var(--font-head);
+  font-size: 64px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: -16px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.journey-milestone {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+.journey-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.journey-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.65);
+}
+
+.journey-bullets li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  margin-top: 8px;
+}
+
+/* Right: Images */
+.about-journey-visual {
+  position: relative;
+}
+
+.journey-images {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.journey-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.journey-img.active {
+  opacity: 1;
+}
+
+
+/* ═══════════════════════════════════════════
+   VISIONARY LEADERSHIP
+═══════════════════════════════════════════ */
+.about-leadership {
+  padding: 120px 0;
+  background: var(--navy);
+  border-top: 1px solid var(--border);
+}
+
+.about-leadership-head {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.about-leadership-head .section-label {
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.about-leadership-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(30px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+  color: var(--white);
+}
+
+/* Leadership section spacing override for About page */
+.about-leadership-section.ldr-team {
+  padding: 56px 0 120px;
+}
+
+.about-leadership-section .about-leadership-head {
+  margin-bottom: 48px;
+}
+
+
+/* ═══════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════ */
+.about-final-cta {
+  padding: 120px 0;
+  background: linear-gradient(135deg, rgba(27,174,159,0.07) 0%, rgba(27,174,159,0.02) 100%), var(--navy-mid);
+  border-top: 1px solid var(--border);
+}
+
+.about-final-cta-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-cta-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+  color: var(--white);
+}
+
+.about-cta-main-btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  background: var(--teal) !important;
+  color: #fff !important;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 36px;
+  border-radius: 4px;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.about-cta-main-btn:hover {
+  background: var(--teal-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(27,174,159,0.3);
+}
+
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .about-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 60px 0;
+  }
+
+  .about-hero-content { max-width: 100%; }
+
+  .about-hero-visual {
+    justify-content: center;
+  }
+
+  .about-purpose-inner,
+  .about-vision-inner,
+  .about-journey-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-journey-content {
+    position: static;
+  }
+
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .about-hero {
+    min-height: auto;
+    padding-top: 80px;
+  }
+
+  .about-hero-inner { padding: 48px 0; }
+
+  .about-hero-h1 { font-size: 30px; }
+
+  .about-hero-img-wrap img {
+    height: 300px;
+  }
+
+  .about-hero-badge {
+    left: 12px;
+    bottom: -16px;
+    padding: 12px 18px;
+  }
+
+  .about-hero-badge-number { font-size: 28px; }
+
+  .about-hero-stats {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .about-stat-divider { display: none; }
+  .about-stat { padding: 0; }
+
+  .about-purpose,
+  .about-vision,
+  .about-origin,
+  .about-journey,
+  .about-leadership,
+  .about-final-cta {
+    padding: 72px 0;
+  }
+
+  .about-purpose-img,
+  .about-vision-img {
+    height: 280px;
+  }
+
+  .about-origin-h2 { font-size: 28px; }
+
+  .about-year-tabs {
+    gap: 0;
+    padding: 0;
+  }
+
+  .year-tab { padding: 10px 14px; font-size: 14px; }
+
+  .about-cta-h2 { font-size: 18px; }
+
+  .journey-year { font-size: 44px; }
+}
+

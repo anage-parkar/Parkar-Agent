@@ -1,0 +1,765 @@
+/* =============================================
+   PARKAR.IN – Resource Centre Styles
+   css/ResourcesHub.css
+   ============================================= */
+
+/* ===== SIMPLE HERO (enterprise-level) ===== */
+.rc-hero-simple {
+  background: #050505;
+  padding: 100px 24px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.rc-hero-simple-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.rc-hero-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #00C4A7;
+  margin-bottom: 20px;
+  padding: 6px 16px;
+  border: 1px solid rgba(0,196,167,0.25);
+  border-radius: 100px;
+  background: rgba(0,196,167,0.06);
+}
+.rc-hero-simple h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+.rc-hero-simple h1 .teal {
+  color: #00C4A7;
+}
+.rc-hero-simple p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* ===== FILTER BAR (enterprise) ===== */
+.rc-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.rc-filter-bar-left {
+  flex: 1;
+}
+.rc-filter-count {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  font-weight: 400;
+}
+.rc-filter-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.rc-filter-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  white-space: nowrap;
+}
+.rc-filter-dropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  padding: 10px 38px 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  min-width: 180px;
+  transition: border-color 0.25s, background 0.25s;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+.rc-filter-dropdown:hover {
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.07);
+}
+.rc-filter-dropdown:focus {
+  outline: none;
+  border-color: #00C4A7;
+  box-shadow: 0 0 0 2px rgba(0,196,167,0.15);
+}
+.rc-filter-dropdown option {
+  background: #111;
+  color: #fff;
+  padding: 8px;
+}
+@media (max-width: 640px) {
+  .rc-filter-bar { flex-direction: column; align-items: flex-start; }
+  .rc-hero-simple { padding: 100px 20px 40px; }
+}
+
+/* ===== HERO (original with bg image — kept for other resource pages) ===== */
+.rc-hero {
+  position: relative;
+  min-height: 52vh;
+  display: flex;
+  align-items: flex-end;
+  padding-top: var(--navbar-height, 72px);
+  overflow: hidden;
+  background-color: #050505;
+}
+
+/* Hero background image (full-width photo of hands typing on laptop)  */
+/* TO ADD THE EXACT URL: on parkar.in/resource, right-click hero → Inspect →
+   find the section element → check Styles panel for background-image URL */
+.rc-hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  display: block;
+}
+
+/* Dark overlay so text stays readable over photo */
+.rc-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.58);
+  z-index: 1;
+}
+
+.rc-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 72px 80px;
+  text-align: left;
+}
+
+.rc-hero h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.12;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+  max-width: 600px;
+}
+
+.rc-hero p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+  max-width: 540px;
+  margin: 0;
+}
+
+/* ===== TAB MENU ===== */
+.rc-tab-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 32px 24px 0;
+  background: #050505;
+  flex-wrap: wrap;
+}
+
+.rc-tab-btn {
+  padding: 9px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.rc-tab-btn:hover {
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.rc-tab-btn.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* ===== TAB PANE ===== */
+.rc-tab-pane {
+  display: none;
+}
+
+.rc-tab-pane.active {
+  display: block;
+}
+
+/* ===== SECTION WRAPPER ===== */
+.rc-section {
+  padding: 32px 24px;
+  background: #050505;
+}
+
+.rc-section-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* ===== SECTION HEADER ===== */
+.rc-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  gap: 16px;
+}
+
+.rc-section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.rc-explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, gap 0.2s ease;
+}
+
+.rc-explore-link:hover {
+  opacity: 1;
+}
+
+.rc-explore-link svg {
+  transition: transform 0.2s ease;
+}
+
+.rc-explore-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* ===== CARDS GRID ===== */
+.rc-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ===== CARD ===== */
+.rc-card {
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rc-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== CARD IMAGE ===== */
+.rc-card-img {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #0a0a0a;
+}
+
+.rc-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.rc-card:hover .rc-card-img img {
+  transform: scale(1.04);
+}
+
+/* ===== CARD BODY ===== */
+.rc-card-body {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+}
+
+.rc-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.rc-card-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rc-card-date {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 400;
+}
+
+.rc-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.rc-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.rc-card:hover .rc-card-cta {
+  color: #ffffff;
+  gap: 10px;
+}
+
+/* ===== WEBINAR META ===== */
+.rc-webinar-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rc-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.rc-meta-row svg {
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+/* ===== EVENT DATE BADGE ===== */
+.rc-card-img-wrap {
+  position: relative;
+}
+
+.rc-event-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 6px 10px;
+  text-align: center;
+  min-width: 50px;
+}
+
+.rc-event-badge .ev-day {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.rc-event-badge .ev-month {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 2px;
+}
+
+/* ===== EBOOK EMPTY STATE ===== */
+.rc-empty {
+  text-align: center;
+  padding: 64px 24px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: #0d0d0d;
+}
+
+.rc-empty svg {
+  opacity: 0.2;
+  margin-bottom: 16px;
+}
+
+.rc-empty p {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ===== CTA SECTION ===== */
+.rc-cta {
+  padding: 36px 24px;
+  background: #050505;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.rc-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 120%, rgba(30, 60, 180, 0.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.rc-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.rc-cta h2 {
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.rc-cta p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.75;
+  margin: 0 0 32px;
+}
+
+.rc-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0a0a0a;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rc-cta-btn:hover {
+  background: #e8e8e8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.15);
+}
+
+.rc-cta-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.rc-cta-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-d1 { transition-delay: 0.07s; }
+.reveal-d2 { transition-delay: 0.14s; }
+.reveal-d3 { transition-delay: 0.21s; }
+.reveal-d4 { transition-delay: 0.28s; }
+.reveal-d5 { transition-delay: 0.35s; }
+
+/* Hero fade in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up    { animation: fadeUp 0.65s ease both; }
+.fade-up-d1 { animation: fadeUp 0.65s 0.12s ease both; }
+.fade-up-d2 { animation: fadeUp 0.65s 0.24s ease both; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .rc-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .rc-hero-inner { padding: 56px 40px; }
+}
+
+@media (max-width: 600px) {
+  .rc-cards-grid { grid-template-columns: 1fr; }
+  .rc-section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .rc-hero h1 { font-size: 2rem; }
+  .rc-hero-inner { padding: 48px 24px; }
+}
+
+/* ===== CENTERED HERO VARIANT (Insights, Case Studies, News, Events) ===== */
+.rc-hero.rc-hero-center {
+  align-items: center;
+  text-align: center;
+}
+
+.rc-hero.rc-hero-center .rc-hero-inner {
+  text-align: center;
+}
+
+.rc-hero.rc-hero-center h1 {
+  margin: 0 auto 16px;
+}
+
+.rc-hero.rc-hero-center p {
+  margin: 0 auto 24px;
+}
+
+/* Hero CTA button (Events page) */
+.rc-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0a0a0a;
+  padding: 12px 30px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.rc-hero-btn:hover {
+  background: #e8e8e8;
+  transform: translateY(-2px);
+}
+
+/* ===== FEATURED CARD (Insights page) ===== */
+.rc-featured-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #111111;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 48px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rc-featured-card:hover {
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 56px rgba(0,0,0,0.5);
+}
+
+.rc-featured-card-img {
+  overflow: hidden;
+}
+
+.rc-featured-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.rc-featured-card:hover .rc-featured-card-img img {
+  transform: scale(1.04);
+}
+
+.rc-featured-card-body {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.rc-featured-card-body .rc-card-title {
+  font-size: 1.35rem;
+  line-height: 1.4;
+}
+
+.rc-featured-card-body .rc-card-cta {
+  margin-top: 8px;
+}
+
+/* ===== METRIC BADGE on case study cards ===== */
+.rc-card-img-rel {
+  position: relative;
+}
+
+.rc-metric-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ===== FILTER PILLS ===== */
+.rc-filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.rc-filter-pill {
+  padding: 7px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.rc-filter-pill:hover {
+  color: rgba(255,255,255,0.85);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.rc-filter-pill.active {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  color: #ffffff;
+}
+
+/* ===== ALTERNATE SECTION BACKGROUND ===== */
+.rc-section-alt {
+  background: #080808;
+}
+
+/* ===== EVENT DATE BADGE (overlaid on card image) ===== */
+.rc-event-date-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* ===== HERO CTA BUTTON ===== */
+.rc-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0a0a0a;
+  padding: 12px 30px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  transition: background 0.2s ease, transform 0.2s ease;
+  margin-top: 8px;
+}
+
+.rc-hero-cta:hover {
+  background: #e8e8e8;
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE EXTRAS ===== */
+@media (max-width: 860px) {
+  .rc-featured-card { grid-template-columns: 1fr; }
+  .rc-featured-card-img { aspect-ratio: 16/9; }
+}
+
+@media (max-width: 600px) {
+  .rc-featured-card-body { padding: 24px; }
+}

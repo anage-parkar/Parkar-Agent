@@ -1,0 +1,624 @@
+/* =============================================
+   PARKAR.IN – Leadership Page Styles
+   css/leadership.css
+   Used by: pages/Company/Leadership.html
+   ============================================= */
+
+/* ── Base overrides (solutions.css already loaded) ── */
+body {
+  background-color: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body::-webkit-scrollbar { display: none; }
+
+/* ── Scroll-reveal animations ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.72s ease, transform 0.72s ease;
+}
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.72s ease;
+}
+.fade-up.visible,
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ══════════════════════════════════════════════
+   1. HERO
+══════════════════════════════════════════════ */
+.ldr-hero {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-color: var(--navy);
+  background-image: url('https://cdn.prod.website-files.com/66fa50f0631f1401a2a41200/68ee7802a26cf349ef98d110_b4a4c8765a371a4f5edab0e4f49eb425_Rectangle%203463830.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 30%;
+  padding-bottom: 80px;
+}
+
+/* Dark gradient overlay — left heavy for text legibility */
+.ldr-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(5, 11, 31, 0.90) 0%,
+    rgba(5, 11, 31, 0.65) 50%,
+    rgba(5, 11, 31, 0.25) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Bottom navy fade — blends into next section */
+.ldr-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to top, var(--navy) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ldr-hero .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.ldr-hero-inner {
+  max-width: 780px;
+}
+
+.ldr-hero-h1 {
+  font-family: var(--font-head);
+  font-size: clamp(46px, 7vw, 96px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: var(--white);
+  margin: 0;
+}
+
+.ldr-hero-highlight {
+  color: var(--teal);
+}
+
+
+/* ══════════════════════════════════════════════
+   2. OVERVIEW INTRO
+══════════════════════════════════════════════ */
+.ldr-overview {
+  padding: 100px 0 80px;
+  background: var(--navy);
+}
+
+.ldr-overview-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.ldr-overview-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ldr-overview-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.5px;
+  color: var(--white);
+  margin: 8px 0 0;
+}
+
+.ldr-overview-p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.62);
+  max-width: 540px;
+}
+
+
+/* ══════════════════════════════════════════════
+   3. LEADERS — TAB NAVIGATION
+══════════════════════════════════════════════ */
+.ldr-team {
+  padding: 0 0 120px;
+  background: var(--navy);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Tab Row ── */
+.ldr-tabs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0;
+}
+
+/* Individual tab button */
+.ldr-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 36px 20px 28px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.3s ease;
+  text-align: center;
+  outline: none;
+  position: relative;
+}
+
+.ldr-tab:hover {
+  background: rgba(255, 255, 255, 0.025);
+  border-bottom-color: rgba(27, 174, 159, 0.35);
+}
+
+.ldr-tab:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: -2px;
+}
+
+.ldr-tab.active {
+  background: rgba(27, 174, 159, 0.04);
+  border-bottom-color: var(--teal);
+}
+
+/* Avatar inside tab */
+.ldr-tab-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.10);
+  background: linear-gradient(135deg, rgba(27,174,159,0.12), rgba(27,174,159,0.04));
+  flex-shrink: 0;
+  transition: border-color 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ldr-tab:hover .ldr-tab-avatar,
+.ldr-tab.active .ldr-tab-avatar {
+  border-color: rgba(27, 174, 159, 0.5);
+  transform: scale(1.04);
+}
+
+.ldr-tab-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Text block inside tab */
+.ldr-tab-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ldr-tab-name {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+  transition: color 0.25s ease;
+}
+
+.ldr-tab:hover .ldr-tab-name,
+.ldr-tab.active .ldr-tab-name {
+  color: var(--white);
+}
+
+.ldr-tab-role {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+  transition: color 0.25s ease;
+}
+
+.ldr-tab.active .ldr-tab-role {
+  color: var(--teal);
+}
+
+
+/* ══════════════════════════════════════════════
+   4. LEADER PANELS (profile area below tabs)
+══════════════════════════════════════════════ */
+.ldr-panels {
+  position: relative;
+}
+
+/* Individual panel — hidden by default */
+.ldr-panel {
+  display: none;
+  grid-template-columns: 480px 1fr;
+  gap: 0;
+  min-height: 560px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+}
+
+/* Active/visible panel */
+.ldr-panel.active {
+  display: grid;
+  animation: panelReveal 0.45s ease forwards;
+}
+
+@keyframes panelReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Left: Photo ── */
+.ldr-panel-photo-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy-mid);
+}
+
+.ldr-panel-photo-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 55%,
+    rgba(5, 11, 31, 0.3) 80%,
+    rgba(5, 11, 31, 0.65) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ldr-panel-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+}
+
+.ldr-panel-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.ldr-panel:hover .ldr-panel-photo img {
+  transform: scale(1.03);
+}
+
+/* ── Right: Content ── */
+.ldr-panel-content {
+  padding: 56px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Subtle teal glow top-right corner */
+.ldr-panel-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle at 100% 0%, rgba(27,174,159,0.10) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ldr-panel-header {
+  position: relative;
+  z-index: 1;
+}
+
+.ldr-panel-name {
+  font-family: var(--font-head);
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  color: var(--white);
+  margin: 0 0 12px;
+}
+
+.ldr-panel-role {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Teal divider bar */
+.ldr-panel-divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal) 0%, rgba(27,174,159,0.3) 100%);
+  border-radius: 2px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.ldr-panel-bio {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.88;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 560px;
+  position: relative;
+  z-index: 1;
+}
+
+/* LinkedIn link */
+.ldr-panel-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  transition: color 0.25s ease;
+  position: relative;
+  z-index: 1;
+  margin-top: 4px;
+}
+
+.ldr-panel-linkedin:hover {
+  color: var(--teal);
+}
+
+.ldr-panel-linkedin svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.ldr-panel-linkedin:hover svg {
+  transform: scale(1.12);
+}
+
+
+/* ══════════════════════════════════════════════
+   5. CTA — JOIN THE PARKAR REVOLUTION
+══════════════════════════════════════════════ */
+.ldr-cta {
+  padding: 120px 0;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 80% 100% at 50% 100%, rgba(27, 174, 159, 0.13) 0%, transparent 65%),
+    linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ldr-cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.ldr-cta-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(30px, 4vw, 56px);
+  font-weight: 700;
+  line-height: 1.13;
+  letter-spacing: -0.8px;
+  color: var(--white);
+  margin: 0;
+}
+
+.ldr-cta-p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.82;
+  color: rgba(255, 255, 255, 0.58);
+  max-width: 560px;
+  margin: 0;
+}
+
+.ldr-cta-btn {
+  margin-top: 12px;
+  padding: 16px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  border-radius: 4px;
+  gap: 10px;
+}
+
+.ldr-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(27, 174, 159, 0.32);
+}
+
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — TABLET  (≤ 1200px)
+══════════════════════════════════════════════ */
+@media (max-width: 1200px) {
+  .ldr-panel {
+    grid-template-columns: 380px 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* Overview */
+  .ldr-overview-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Tabs: 3 columns, wrap last 2 */
+  .ldr-tabs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ldr-tabs .ldr-tab:nth-child(4),
+  .ldr-tabs .ldr-tab:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  /* Panel stacks vertically */
+  .ldr-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .ldr-panel-photo,
+  .ldr-panel-photo-wrap {
+    min-height: 380px;
+    height: 380px;
+  }
+
+  .ldr-panel-content {
+    padding: 44px 40px;
+  }
+}
+
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — MOBILE  (≤ 768px)
+══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Hero */
+  .ldr-hero {
+    padding-bottom: 60px;
+  }
+  .ldr-hero-h1 {
+    font-size: clamp(36px, 9vw, 52px);
+    letter-spacing: -1px;
+  }
+
+  /* Overview */
+  .ldr-overview { padding: 72px 0 56px; }
+  .ldr-overview-inner { gap: 32px; }
+
+  /* Tabs: horizontal scroll */
+  .ldr-team { padding-bottom: 80px; }
+  .ldr-tabs {
+    grid-template-columns: repeat(5, minmax(140px, 1fr));
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0;
+    padding-bottom: 0;
+  }
+  .ldr-tabs::-webkit-scrollbar { display: none; }
+
+  .ldr-tab {
+    padding: 24px 16px 20px;
+    min-width: 140px;
+  }
+
+  .ldr-tab-avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .ldr-tab-name { font-size: 12px; }
+  .ldr-tab-role { font-size: 10.5px; }
+
+  /* Panel */
+  .ldr-panel-photo,
+  .ldr-panel-photo-wrap {
+    min-height: 300px;
+    height: 300px;
+  }
+
+  .ldr-panel-content {
+    padding: 36px 28px 40px;
+    gap: 20px;
+  }
+
+  .ldr-panel-name {
+    font-size: clamp(26px, 6vw, 36px);
+  }
+
+  /* CTA */
+  .ldr-cta { padding: 80px 0; }
+}
+
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE  (≤ 480px)
+══════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .container { padding: 0 20px; }
+
+  .ldr-hero-h1 {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  .ldr-tab {
+    padding: 20px 12px 16px;
+    min-width: 120px;
+  }
+
+  .ldr-tab-avatar {
+    width: 52px;
+    height: 52px;
+  }
+
+  .ldr-panel-content { padding: 28px 20px 32px; }
+
+  .ldr-cta-h2 { font-size: 26px; }
+}

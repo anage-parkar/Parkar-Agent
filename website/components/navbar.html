@@ -1,0 +1,180 @@
+<!-- =============================================
+   PARKAR.IN - Reusable Navbar Component
+   components/navbar.html
+   ============================================= -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="navbar-inner">
+
+    <!-- Logo -->
+    <a href="/" class="navbar-logo" aria-label="Parkar Home">
+      <img
+        src="/assets/Parkar_logo.png"
+        alt="Parkar"
+        style="height:36px; width:auto; object-fit:contain;"
+      />
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="navbar-menu" role="menubar">
+
+      <!-- What We Do (Solutions + Platforms) -->
+      <li class="nav-item" role="none">
+        <span class="nav-link" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+          What We Do
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+        <div class="nav-dropdown wide" role="menu">
+          <!-- Solutions Column -->
+          <div class="nav-dropdown-section" role="group" aria-label="Solutions">
+            <div class="nav-dropdown-section-title">Solutions</div>
+            <a class="dropdown-simple-link" data-local-href="/solutions/agentic-ai" role="menuitem">Agentic AI</a>
+            <a class="dropdown-simple-link" data-local-href="/solutions/data" role="menuitem">Data</a>
+            <a class="dropdown-simple-link" data-local-href="/solutions/applications" role="menuitem">Application</a>
+            <a class="dropdown-simple-link" data-local-href="/solutions/cloud" role="menuitem">Cloud</a>
+            <a class="dropdown-simple-link" data-local-href="/solutions/itops" role="menuitem">IT Operations</a>
+          </div>
+          <!-- Platforms Column -->
+          <div class="nav-dropdown-section" role="group" aria-label="Platforms">
+            <div class="nav-dropdown-section-title">Platforms</div>
+            <a class="dropdown-simple-link" data-local-href="/platforms/aioniq" role="menuitem">AIONIQ</a>
+            <a class="dropdown-simple-link" data-local-href="/platforms/vector" role="menuitem">Vector</a>
+            <span class="dropdown-simple-link" style="pointer-events:none; opacity:0.4; cursor:default;">Accelerators</span>
+          </div>
+        </div>
+      </li>
+
+      <!-- Industries -->
+      <li class="nav-item" role="none">
+        <span class="nav-link" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+          Who We Serve
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+        <div class="nav-dropdown" role="menu">
+          <a class="dropdown-simple-link" data-local-href="/industries/financial-services" role="menuitem">Financial Services</a>
+          <a class="dropdown-simple-link" data-local-href="/industries/healthcare" role="menuitem">Healthcare &amp; Life Sciences</a>
+          <a class="dropdown-simple-link" data-local-href="/industries/manufacturing" role="menuitem">Manufacturing &amp; Industrial</a>
+          <a class="dropdown-simple-link" data-local-href="/industries/media" role="menuitem">High-Tech &amp; SaaS</a>
+        </div>
+      </li>
+
+      <!-- Resources -->
+      <li class="nav-item" role="none">
+        <span class="nav-link" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+          Insights
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+        <div class="nav-dropdown" role="menu">
+          <a class="dropdown-simple-link" data-local-href="/insights/blogs" role="menuitem">Blogs</a>
+          <a class="dropdown-simple-link" data-local-href="/insights/research" role="menuitem">Research &amp; Reports</a>
+          <a class="dropdown-simple-link" data-local-href="/insights/case-studies" role="menuitem">Case Studies</a>
+          <a class="dropdown-simple-link" data-local-href="/insights/events" role="menuitem">Events &amp; Webinars</a>
+          <a class="dropdown-simple-link" data-local-href="/insights/news" role="menuitem">News</a>
+        </div>
+      </li>
+
+      <!-- Company -->
+      <li class="nav-item" role="none">
+        <span class="nav-link" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+          Who We Are
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+        <div class="nav-dropdown" role="menu">
+          <a class="dropdown-simple-link" data-local-href="/company/about" role="menuitem">About Us</a>
+          <a class="dropdown-simple-link" data-local-href="/company/leadership" role="menuitem">Leadership Team</a>
+          <a class="dropdown-simple-link" data-local-href="/company/awards" role="menuitem">Awards &amp; Recognition</a>
+          <a class="dropdown-simple-link" data-local-href="/careers/open-positions" role="menuitem">Careers</a>
+          <a class="dropdown-simple-link" data-local-href="/careers/life-at-parkar" role="menuitem">Life @ Parkar</a>
+        </div>
+      </li>
+
+    </ul><!-- /.navbar-menu -->
+
+    <!-- CTA -->
+    <div class="navbar-cta">
+      <a data-local-href="/contact" class="nav-cta-btn" id="navCtaBtn">
+        <span class="nav-cta-text">Talk to Our Team</span>
+        <span class="nav-cta-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0"/><path d="M15 16l4-4"/><path d="M15 8l4 4"/></svg>
+        </span>
+      </a>
+    </div>
+
+    <!-- Hamburger (mobile) -->
+    <button class="navbar-hamburger" id="hamburger" aria-label="Toggle Menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+  </div><!-- /.navbar-inner -->
+</nav><!-- /.navbar -->
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-label="Mobile Navigation">
+  <ul>
+
+    <li class="mobile-nav-item">
+      <div class="mobile-nav-header" data-target="mob-what-we-do">
+        What We Do
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mobile-nav-submenu" id="mob-what-we-do">
+        <span class="mobile-dropdown-label">Solutions</span>
+        <a class="mobile-dropdown-link" data-local-href="/solutions/agentic-ai">Agentic AI</a>
+        <a class="mobile-dropdown-link" data-local-href="/solutions/data">Data</a>
+        <a class="mobile-dropdown-link" data-local-href="/solutions/applications">Application</a>
+        <a class="mobile-dropdown-link" data-local-href="/solutions/cloud">Cloud</a>
+        <a class="mobile-dropdown-link" data-local-href="/solutions/itops">IT Operations</a>
+        <span class="mobile-dropdown-label">Platforms</span>
+        <a class="mobile-dropdown-link" data-local-href="/platforms/aioniq">AIONIQ</a>
+        <a class="mobile-dropdown-link" data-local-href="/platforms/vector">Vector</a>
+        <span class="mobile-dropdown-link" style="pointer-events:none; opacity:0.4; cursor:default;">Accelerators</span>
+      </div>
+    </li>
+
+    <li class="mobile-nav-item">
+      <div class="mobile-nav-header" data-target="mob-industries">
+        Who We Serve
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mobile-nav-submenu" id="mob-industries">
+        <a class="mobile-dropdown-link" data-local-href="/industries/financial-services">Financial Services</a>
+        <a class="mobile-dropdown-link" data-local-href="/industries/healthcare">Healthcare &amp; Life Sciences</a>
+        <a class="mobile-dropdown-link" data-local-href="/industries/manufacturing">Manufacturing &amp; Industrial</a>
+        <a class="mobile-dropdown-link" data-local-href="/industries/media">High-Tech &amp; SaaS</a>
+      </div>
+    </li>
+
+    <li class="mobile-nav-item">
+      <div class="mobile-nav-header" data-target="mob-resources">
+        Insights
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mobile-nav-submenu" id="mob-resources">
+        <a class="mobile-dropdown-link" data-local-href="/insights/blogs">Blogs</a>
+        <a class="mobile-dropdown-link" data-local-href="/insights/research">Research &amp; Reports</a>
+        <a class="mobile-dropdown-link" data-local-href="/insights/case-studies">Case Studies</a>
+        <a class="mobile-dropdown-link" data-local-href="/insights/events">Events &amp; Webinars</a>
+        <a class="mobile-dropdown-link" data-local-href="/insights/news">News</a>
+      </div>
+    </li>
+
+    <li class="mobile-nav-item">
+      <div class="mobile-nav-header" data-target="mob-company">
+        Who We Are
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mobile-nav-submenu" id="mob-company">
+        <a class="mobile-dropdown-link" data-local-href="/company/about">About Us</a>
+        <a class="mobile-dropdown-link" data-local-href="/company/leadership">Leadership Team</a>
+        <a class="mobile-dropdown-link" data-local-href="/company/awards">Awards &amp; Recognition</a>
+        <a class="mobile-dropdown-link" data-local-href="/careers/open-positions">Careers</a>
+        <a class="mobile-dropdown-link" data-local-href="/careers/life-at-parkar">Life @ Parkar</a>
+      </div>
+    </li>
+
+  </ul>
+  <div class="mobile-nav-cta">
+    <a class="mobile-dropdown-link" data-local-href="/contact" style="justify-content:center;">Get an Assessment</a>
+  </div>
+</div><!-- /.mobile-menu -->

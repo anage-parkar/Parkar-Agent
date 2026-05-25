@@ -1,0 +1,37 @@
+# Cloudflare Pages legacy redirects
+# Clean routes now map directly to matching files, so we only keep
+# redirects from old non-canonical paths.
+
+/vector/overview                      /platforms/vector                            301
+/vector/platform                      /platforms/vector-platform                   301
+/vector/integration                   /platforms/vector-integrations               301
+
+/solutions/agenticai                  /solutions/agentic-ai                        301
+
+/gcc/managedservice                   /gcc/managed-service                         301
+/gcc/payasyougo                       /gcc/pay-as-you-go                           301
+/gcc/buildoperatetransfer             /gcc/build-operate-transfer                  301
+/gcc/thoughtleadership                /gcc/thought-leadership                      301
+
+/gcc/blogs/BuildingForIntelligence    /gcc/blogs/building-for-intelligence         301
+/gcc/blogs/WhyEnterpriseAIStruggles   /gcc/blogs/why-enterprise-ai-struggles       301
+/gcc/gccblogs/buildingforintelligence /gcc/blogs/building-for-intelligence         301
+/gcc/gccblogs/whyenterpriseaistruggles /gcc/blogs/why-enterprise-ai-struggles      301
+/gcc/gcccasestudies/genaistudio       /gcc/case-studies/gen-ai-studio             301
+/gcc/gcccasestudies/realtimeaiops     /gcc/case-studies/real-time-ai-ops          301
+
+/industries/financialservices         /industries/financial-services               301
+
+/resources/resourceshub               /resources/research                          301
+/resources/casestudy                  /resources/case-studies                      301
+
+/company/ourjourney                   /company/our-journey                         301
+/company/awardsrecognitions           /company/awards                              301
+
+/careers/lifeatparkar                 /careers/life-at-parkar                      301
+/careers/openpositions                /careers/open-positions                      301
+/careers/teamhighlights               /careers/team-highlights                     301
+/careers/teamhighlights/satyen        /careers/team-highlights/satyen              301
+
+/footerpages/privacypolicy            /legal/privacy                               301
+/footerpages/termsofuse               /legal/terms                                 301

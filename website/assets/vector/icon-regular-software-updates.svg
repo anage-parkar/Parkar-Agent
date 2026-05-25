@@ -1,0 +1,15 @@
+<svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M55.6891 32.5C55.6891 45.807 44.9016 56.5945 31.5946 56.5945C18.2875 56.5945 7.5 45.807 7.5 32.5C7.5 19.1929 18.2875 8.4054 31.5946 8.4054C39.9022 8.4054 47.2278 12.6099 51.5597 19.007" stroke="url(#paint0_radial_1922_2043)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.4711 16.1157L54.7355 21.909L48.9422 21.6446" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22.5605 32.8289L28.1605 39.8846L42.5605 29.1154" stroke="url(#paint1_linear_1922_2043)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<radialGradient id="paint0_radial_1922_2043" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25.4998 -3.99971) rotate(51.6322) scale(45.9159 28970.4)">
+<stop stop-color="#4D4D4D"/>
+<stop offset="1" stop-color="white"/>
+</radialGradient>
+<linearGradient id="paint1_linear_1922_2043" x1="71.4342" y1="72.9391" x2="52.0795" y2="85.3123" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#4D4D4D"/>
+</linearGradient>
+</defs>
+</svg>

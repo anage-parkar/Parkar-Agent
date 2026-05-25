@@ -1,0 +1,330 @@
+/* =============================================
+   PARKAR.IN - GCC Pay-As-You-Go Page Styles
+   css/gcc-pay-as-you-go.css
+   Used by: pages/GCC/PayAsYouGo.html
+   ============================================= */
+
+/* ─── Base ─── */
+body {
+  font-family: var(--font-body);
+  background-color: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body::-webkit-scrollbar { display: none; }
+
+/* ══════════════════════════════════════
+   HERO — centered, full-width
+══════════════════════════════════════ */
+.payg-hero {
+  position: relative;
+  padding-top: 80px;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 55% at 50% 0%,  rgba(27,174,159,0.11) 0%, transparent 65%),
+              radial-gradient(ellipse 50% 40% at 20% 90%, rgba(27,174,159,0.05) 0%, transparent 60%),
+              var(--navy);
+}
+.payg-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 88px 0 80px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+.payg-hero-inner .section-label {
+  display: block;
+  margin-bottom: 20px;
+}
+.payg-hero-inner h1 {
+  font-family: var(--font-head);
+  font-size: clamp(38px, 5.2vw, 68px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  color: var(--white);
+}
+.payg-hero-inner h1 span { color: var(--teal); }
+.payg-hero-inner .payg-hero-sub {
+  font-family: var(--font-head);
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 20px;
+  line-height: 1.45;
+}
+.payg-hero-inner p {
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 1.85;
+  color: rgba(255,255,255,0.62);
+  max-width: 620px;
+  margin: 0 auto 40px;
+}
+
+/* ══════════════════════════════════════
+   KEY BENEFITS
+══════════════════════════════════════ */
+.payg-benefits {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-top: 1px solid var(--border);
+}
+.payg-benefits-head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 64px;
+}
+.payg-benefits-head h2 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+.payg-benefits-head h2 span { color: var(--teal); }
+.payg-benefits-head p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.58);
+}
+.payg-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.payg-benefit-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.payg-benefit-card:hover {
+  border-color: rgba(27,174,159,0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.35);
+}
+.payg-benefit-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(27,174,159,0.08);
+  border: 1px solid rgba(27,174,159,0.22);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.payg-benefit-icon img {
+  width: 24px;
+  height: 24px;
+}
+.payg-benefit-card h3 {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+}
+.payg-benefit-card p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.58);
+  flex: 1;
+}
+
+/* ══════════════════════════════════════
+   BEST FOR
+══════════════════════════════════════ */
+.payg-best-for {
+  padding: 100px 0;
+  background: var(--navy-mid);
+}
+.payg-best-for-head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 56px;
+}
+.payg-best-for-head h2 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+.payg-best-for-head h2 span { color: var(--teal); }
+.payg-best-for-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.payg-best-for-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.payg-best-for-card:hover {
+  border-color: rgba(27,174,159,0.35);
+  transform: translateY(-4px);
+}
+.payg-best-for-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.payg-best-for-card:hover .payg-best-for-card-img { transform: scale(1.05); }
+.payg-best-for-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(5,11,31,0.95) 0%,
+    rgba(5,11,31,0.55) 45%,
+    transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 24px;
+  gap: 14px;
+}
+.payg-best-for-overlay h3 {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--white);
+}
+.payg-best-for-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--teal);
+  transition: gap 0.2s ease;
+}
+.payg-best-for-link img {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  filter: brightness(0) saturate(100%) invert(60%) sepia(60%) saturate(400%) hue-rotate(130deg);
+}
+.payg-best-for-link:hover { gap: 10px; }
+
+/* ══════════════════════════════════════
+   STATS BANNER
+══════════════════════════════════════ */
+.payg-stats-banner {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0;
+  background: var(--navy);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.payg-stats-banner-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://cdn.prod.website-files.com/66fa50f0631f1401a2a41200/6834446611486db17c0dafcb_Stats-bg-image.webp');
+  background-size: cover;
+  background-position: center right;
+  opacity: 0.12;
+  pointer-events: none;
+}
+.payg-stats-banner-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+  align-items: center;
+}
+.payg-stats-banner-content .section-label {
+  display: block;
+  margin-bottom: 16px;
+}
+.payg-stats-banner-content h2 {
+  font-family: var(--font-head);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  color: var(--white);
+}
+.payg-stats-banner-content h2 span { color: var(--teal); }
+.payg-stats-banner-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  max-width: 540px;
+}
+
+/* ══════════════════════════════════════
+   FINAL CTA
+══════════════════════════════════════ */
+.payg-final-cta {
+  padding: 120px 0;
+  text-align: center;
+  background: radial-gradient(ellipse 70% 80% at 50% 100%, rgba(27,174,159,0.12) 0%, transparent 70%),
+              linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
+  border-top: 1px solid var(--border);
+}
+.payg-final-cta .section-label {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.payg-final-cta h2 {
+  font-family: var(--font-head);
+  font-size: clamp(30px, 3.5vw, 50px);
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 680px;
+  margin: 0 auto 16px;
+  color: var(--white);
+}
+.payg-final-cta h2 span { color: var(--teal); }
+.payg-final-cta p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.58);
+  max-width: 560px;
+  margin: 0 auto 40px;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .payg-benefits-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .payg-best-for-grid { grid-template-columns: repeat(2, 1fr); }
+  .payg-stats-banner-inner { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .payg-benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .payg-best-for-grid { grid-template-columns: 1fr; }
+  .payg-hero-inner { padding: 72px 0 64px; }
+}
+@media (max-width: 480px) {
+  .payg-benefits-grid { grid-template-columns: 1fr; }
+}

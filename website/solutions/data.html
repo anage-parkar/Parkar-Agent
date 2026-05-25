@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Engineering &amp; AI-Ready Platforms for Enterprise | Parkar</title>
+  <meta name="description" content="Parkar builds governed, scalable data platforms on Azure, Databricks, Snowflake, and Fabric — the trusted data foundation your AI initiatives actually need to perform at scale.">
+  <meta property="og:title" content="Engineering Trusted Data Platforms for the AI Era | Parkar">
+  <meta property="og:description" content="AI stalls when the data beneath it doesn't work. Parkar builds the lakehouse foundations, pipelines, and governance controls that make enterprise AI production-ready.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="../assets/icons/favicon.png" />
+  <link rel="apple-touch-icon" sizes="256x256" href="../assets/icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/solutions.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NXHZDWK');</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a lakehouse architecture and why does it matter for AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A lakehouse combines the scalability of a data lake with the reliability and governance of a data warehouse into a single platform. It matters for AI because models need clean, governed, production-ready data \u2014 not fragmented pipelines. Parkar builds lakehouse foundations on Azure, Databricks, Snowflake, and Microsoft Fabric."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you ensure data quality for AI workloads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We implement data quality checks at every stage of the pipeline \u2014 ingestion, transformation, and serving. This includes automated profiling, schema validation, lineage tracking, and anomaly detection. Poor data quality is the number one reason AI models fail in production."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Databricks and Snowflake?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Databricks excels at large-scale data engineering, ML workloads, and real-time streaming on a unified lakehouse. Snowflake is stronger for structured analytics, data sharing, and multi-cloud data warehousing. Parkar has production experience on both and recommends based on your specific workload requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you build an AI-ready data platform?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Quick Win Assessment Workshop takes 2 weeks. From there, foundational data platform work typically delivers first production pipelines within 90 days, with enterprise-scale maturity by month 6."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZDWK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ 
+  <!-- ─── NAVBAR ─── -->
+  <div id="navbar-placeholder"></div>
+ 
+  <!-- ═══ S1 — INTRO ═══ -->
+  <section class="hero" style="background-image:url('../assets/Solutions/data//Data_Background.webp');">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content fade-up">
+          <h1>Engineering Trusted <span>Data Platforms<br>for the AI Era</span></h1>
+          <p>AI only performs when the data beneath it does. We build the governed, scalable lakehouse foundations that make AI production-ready on Azure, Databricks, and Microsoft Fabric, and across Snowflake, AWS, and GCP - wherever your data lives.</p>
+          <div class="hero-cta-row">
+            <a href="/contact" class="btn-primary">Book a Quick Win Assessment Workshop →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ═══ S2 — THE PROBLEM AND PAINS ═══ -->
+  <section class="problem-section" id="problem">
+    <div class="container">
+      <div class="problem-head fade-up">
+        <span class="section-label">Why enterprises can't move forward</span>
+        <h2>Your Data is Everywhere.<br>Your <span>AI is Stuck.</span></h2>
+        <p>The enterprise data problem is a trust problem.</p>
+        <p>Data exists across EHRs, ERPs, IoT streams, and legacy warehouses — fragmented, ungoverned, and too slow to act on. AI projects stall at proof-of-concept because the foundation was never built to scale. So, data teams end up firefighting pipelines, not enabling the business.</p>
+      </div>
+ 
+      <div class="problem-list">
+        <div class="problem-row fade-up">
+          <div class="problem-row-img">
+            <img src="../assets/Solutions/data/Data-Prob1.webp" alt="Fragmented Silos" />
+            <div class="problem-row-img-fade"></div>
+          </div>
+          <div class="problem-row-body">
+            <h3>Fragmented Silos</h3>
+            <p>Every team has its own version of the truth — and none of them match.</p>
+          </div>
+        </div>
+        <div class="problem-row fade-up">
+          <div class="problem-row-img">
+            <img src="../assets/Solutions/data/Data-Prob2.webp" alt="Fragile Pipelines" />
+            <div class="problem-row-img-fade"></div>
+          </div>
+          <div class="problem-row-body">
+            <h3>Fragile Pipelines</h3>
+            <p>The data team becomes a bottleneck, not an enabler.</p>
+          </div>
+        </div>
+        <div class="problem-row fade-up">
+          <div class="problem-row-img">
+            <img src="../assets/Solutions/data/Data-Prob3.webp" alt="Compliance Exposure" />
+            <div class="problem-row-img-fade"></div>
+          </div>
+          <div class="problem-row-body">
+            <h3>Compliance Exposure</h3>
+            <p>AI adoption stalls because no one can prove the data is trustworthy.</p>
+          </div>
+        </div>
+        <div class="problem-row fade-up">
+          <div class="problem-row-img">
+            <img src="../assets/Solutions/data/Data-Prob4.webp" alt="Stale Dashboards" />
+            <div class="problem-row-img-fade"></div>
+          </div>
+          <div class="problem-row-body">
+            <h3>Stale Dashboards</h3>
+            <p>When insights lag reality, decisions revert to gut feel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ═══ S3 — CAPABILITIES ═══ -->
+  <section class="solutions" id="capabilities">
+    <div class="container">
+      <div class="solutions-head fade-up">
+        <span class="section-label">What We Engineer and Govern</span>
+        <h2>From Strategy to <span>AI-Ready Infrastructure</span></h2>
+        <p class="capabilities-sub">Our Data Engineering practice covers every layer of the modern data platform.</p>
+        <p class="capabilities-sub">We assess where you are, build what you need, and govern what matters so your data becomes a reliable foundation for analytics, AI, and business decisions.</p>
+      </div>
+ 
+      <div class="pillars-grid">
+        <div class="solution-card-pillar fade-up">
+          <span class="pillar-num">01</span>
+          <h3>Data Strategy</h3>
+          <ul class="pillar-bullets">
+            <li>Data maturity assessment + roadmap</li>
+            <li>Platform selection — Databricks · Snowflake · Azure · AWS · GCP</li>
+          </ul>
+        </div>
+        <div class="solution-card-pillar fade-up">
+          <span class="pillar-num">02</span>
+          <h3>Data Platform &amp; Lakehouse Build</h3>
+          <ul class="pillar-bullets">
+            <li>ETL/ELT pipelines — dbt · Glue · Fabric · ADF · Spark</li>
+            <li>Streaming + batch: Kafka · Spark · Event Hubs</li>
+            <li>DataOps: CI/CD for pipelines, automated testing, observability</li>
+          </ul>
+        </div>
+        <div class="solution-card-pillar fade-up">
+          <span class="pillar-num">03</span>
+          <h3>Data Quality &amp; DataOps</h3>
+          <ul class="pillar-bullets">
+            <li>Automated quality rules — completeness, freshness, accuracy</li>
+            <li>Observability: anomaly detection, lineage, SLA monitoring</li>
+            <li>Pipeline incident management — alerts, root cause, remediation</li>
+          </ul>
+        </div>
+        <div class="solution-card-pillar fade-up">
+          <span class="pillar-num">04</span>
+          <h3>Data Governance &amp; Compliance</h3>
+          <ul class="pillar-bullets">
+            <li>Unity Catalog · Purview · Collibra implementation</li>
+            <li>GDPR, HIPAA, SOC2 data compliance controls</li>
+            <li>Data classification, access control, retention policies, lineage</li>
+          </ul>
+        </div>
+        <div class="solution-card-pillar fade-up">
+          <span class="pillar-num">05</span>
+          <h3>Analytics, BI &amp; Self-Service</h3>
+          <ul class="pillar-bullets">
+            <li>Enterprise BI — Power BI · Tableau · Looker · Databricks SQL</li>
+            <li>Semantic layer design for consistent, governed metrics</li>
+            <li>Self-service analytics enablement for business teams</li>
+          </ul>
+        </div>
+        <div class="solution-card-pillar fade-up">
+          <span class="pillar-num">06</span>
+          <h3>AI/ML &amp; Agentic Data Foundation</h3>
+          <ul class="pillar-bullets">
+            <li>RAG-ready vector stores — pgvector · Pinecone · Weaviate</li>
+            <li>Feature engineering, ML-ready data products</li>
+            <li>Semantic layer + knowledge graph for agentic AI consumption</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+ 
+ 
+ 
+  <!-- ═══ S4 — TECH STACK ═══ -->
+  <section class="tech-stack-section" id="tech-stack">
+    <div class="container">
+      <div class="tech-stack-head fade-up">
+        <span class="section-label">How we build it</span>
+        <h2><span>Platform-Agnostic</span> Where it Serves You.</h2>
+        <p>We recommend the right architecture for your business, and we have the depth to deliver it. Our practice runs deepest on Azure, Databricks, and Microsoft Fabric, but we deliver production platforms on Snowflake, AWS, and GCP with equal rigour.</p>
+      </div>
+ 
+      <div class="tech-stack-table-wrap fade-up">
+        <table class="tech-stack-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Tools &amp; Platforms</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="ts-cat">Cloud</td>
+              <td><span class="tech-pill">Azure</span><span class="tech-pill">AWS</span><span class="tech-pill">GCP</span></td>
+            </tr>
+            <tr>
+              <td class="ts-cat">Data Engineering</td>
+              <td><span class="tech-pill">Azure Data Factory</span><span class="tech-pill">PySpark</span><span class="tech-pill">SQL</span><span class="tech-pill">Apache Airflow</span><span class="tech-pill">Delta Live Tables</span><span class="tech-pill">Auto Loader</span></td>
+            </tr>
+            <tr>
+              <td class="ts-cat">Data Platforms</td>
+              <td><span class="tech-pill">Databricks</span><span class="tech-pill">Microsoft Fabric</span><span class="tech-pill">Snowflake</span><span class="tech-pill">BigQuery</span></td>
+            </tr>
+            <tr>
+              <td class="ts-cat">Governance</td>
+              <td><span class="tech-pill">Microsoft Purview</span><span class="tech-pill">Unity Catalog</span><span class="tech-pill">Fabric Governance</span><span class="tech-pill">Entra ID</span></td>
+            </tr>
+            <tr>
+              <td class="ts-cat">BI &amp; Analytics</td>
+              <td><span class="tech-pill">Power BI</span><span class="tech-pill">Tableau</span><span class="tech-pill">Databricks SQL</span><span class="tech-pill">Looker</span></td>
+            </tr>
+            <tr>
+              <td class="ts-cat">AI / GenAI</td>
+              <td><span class="tech-pill">Databricks MLflow</span><span class="tech-pill">Mosaic AI</span><span class="tech-pill">Azure ML</span><span class="tech-pill">Azure OpenAI</span><span class="tech-pill">AIONIQ Copilots</span></td>
+            </tr>
+            <tr>
+              <td class="ts-cat">Ops &amp; Monitoring</td>
+              <td><span class="tech-pill">Vector</span><span class="tech-pill">Azure Monitor</span><span class="tech-pill">FinOps tooling</span><span class="tech-pill">CI/CD via Azure DevOps</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+ 
+ 
+ 
+  <!-- ═══ S5 — OUTCOMES  ═══ -->
+  <section class="case-studies" id="case-studies">
+    <div class="container">
+      <div class="case-studies-head fade-up">
+        <span class="section-label">Turning solutions into real enterprise results.</span>
+        <h2>AI Investment Turned into Measurable Enterprise Outcomes.</h2>
+      </div>
+ 
+      <div class="cs-grid">
+        <a class="cs-card fade-up" href="/insights/case-studies/unlocking-population-health-insights">
+          <img class="cs-card-img" src="../assets/partners/cs-unlocking-health.webp" alt="Healthcare data foundation">
+          <div class="cs-card-body">
+            <span class="cs-card-tag">Healthcare</span>
+            <div class="cs-metric">50% reduction in data silos</div>
+            <h3>From Data Hub to AI-Ready Foundation</h3>
+            <p style="font-size:14px; color:rgba(255,255,255,0.55); line-height:1.6; margin-bottom:16px;">Enterprise healthcare provider · Azure + Databricks · HIPAA-compliant unified data platform</p>
+            <span class="cs-learn-more">Read case study <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg></span>
+          </div>
+        </a>
+        <a class="cs-card fade-up" href="/insights/case-studies/stabilizing-global-it-operations">
+          <img class="cs-card-img" src="../assets/partners/cs-strengthening-compliance.webp" alt="Risk and compliance platform">
+          <div class="cs-card-body">
+            <span class="cs-card-tag">Financial Services</span>
+            <div class="cs-metric">70% faster compliance reporting</div>
+            <h3>Strengthening Risk &amp; Compliance</h3>
+            <p style="font-size:14px; color:rgba(255,255,255,0.55); line-height:1.6; margin-bottom:16px;">Mid-size FS provider · Databricks + Azure · Real-time risk intelligence platform</p>
+            <span class="cs-learn-more">Read case study <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg></span>
+          </div>
+        </a>
+        <a class="cs-card fade-up" href="/insights/case-studies/predictive-maintenance">
+          <img class="cs-card-img" src="../assets/partners/cs-predictive-maintenance.webp" alt="Predictive maintenance">
+          <div class="cs-card-body">
+            <span class="cs-card-tag">Manufacturing</span>
+            <div class="cs-metric">90% reduction in unplanned downtime</div>
+            <h3>Predictive Maintenance Transformation</h3>
+            <p style="font-size:14px; color:rgba(255,255,255,0.55); line-height:1.6; margin-bottom:16px;">Global mobility manufacturer · Azure + Databricks · IoT data backbone + ML models</p>
+            <span class="cs-learn-more">Read case study <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+ 
+ 
+  <!-- ═══ CERTIFICATIONS ═══ -->
+  <section class="certifications">
+    <div class="container">
+      <div class="cert-head fade-up">
+        <span class="section-label">Certifications</span>
+        <h2>Security and compliance you can count on</h2>
+      </div>
+      <div class="cert-logos fade-up">
+        <img src="../assets/Certificate_logos/hipaa-badge.webp" alt="HIPAA Compliant" loading="lazy">
+        <img src="../assets/Certificate_logos/iso27001-badge.webp" alt="ISO 27001 Certified" loading="lazy">
+        <img src="../assets/Certificate_logos/aicpa-badge.webp" alt="AICPA SOC" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ S7 — GETTING STARTED ═══ -->
+  <section class="how-we-start-section" id="how-we-start">
+    <div class="container">
+      <div class="how-we-start-head fade-up">
+        <span class="section-label">Get started</span>
+        <h2>Quick Wins in the First 90 Days. <span>Enterprise Scale by Month 6.</span></h2>
+        <p>Every engagement begins with a structured Quick Win Assessment. A focused discovery that identifies your highest-impact data opportunity and maps the fastest path to production. 3 initiatives, 90 days, and real outcomes your business can see.</p>
+      </div>
+ 
+      <div class="how-we-start-steps">
+        <div class="start-step fade-up">
+          <span class="start-step-num">01</span>
+          <h3>Modernize storage</h3>
+          <p>Migrate one business unit to a cloud-native lakehouse — Azure Data Lake, Snowflake, or BigQuery. Immediate gains in pipeline reliability, query performance, and data accessibility.</p>
+          <p class="start-step-deliverable">What you get: A production lakehouse layer with schema enforcement, partitioning, and access controls — ready to extend.</p>
+        </div>
+        <div class="start-step fade-up">
+          <span class="start-step-num">02</span>
+          <h3>Pilot a streaming pipeline</h3>
+          <p>Set up real-time ingestion for one high-value source — EHR feed, IoT stream, transaction feed, or CRM event — before committing to full-scale deployment.</p>
+          <p class="start-step-deliverable">What you get: A live, governed streaming pipeline with monitoring, alerting, and lineage — demonstrating near-real-time data value.</p>
+        </div>
+        <div class="start-step fade-up">
+          <span class="start-step-num">03</span>
+          <h3>Governance starter</h3>
+          <p>Implement Purview and Unity Catalog on a scoped dataset. Lineage, access control, quality rules, and cataloguing in place, with a blueprint that extends to your full estate.</p>
+          <p class="start-step-deliverable">What you get: A governed data product your teams can trust, with the framework to replicate it across every domain.</p>
+        </div>
+      </div>
+    </div>
+    <div class="final-cta-row fade-up">
+        <a href="/contact" class="hp-cta-btn">
+          <span class="hp-cta-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0"/><path d="M15 16l4-4"/><path d="M15 8l4 4"/></svg>
+          </span>
+          <span class="hp-cta-text">Book a Quick Win Assessment Workshop</span>
+        </a>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ SECTION (AEO) ═══ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-head fade-up">
+        <span class="section-label">Frequently Asked Questions</span>
+        <h2>Got Questions? <span>We've Got Answers.</span></h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item fade-up">
+          <div class="faq-question">What is a lakehouse architecture and why does it matter for AI?</div>
+          <div class="faq-answer"><p>A lakehouse combines the scalability of a data lake with the reliability and governance of a data warehouse into a single platform. It matters for AI because models need clean, governed, production-ready data — not fragmented pipelines. Parkar builds lakehouse foundations on Azure, Databricks, Snowflake, and Microsoft Fabric.</p></div>
+        </div>
+        <div class="faq-item fade-up">
+          <div class="faq-question">How do you ensure data quality for AI workloads?</div>
+          <div class="faq-answer"><p>We implement data quality checks at every stage of the pipeline — ingestion, transformation, and serving. This includes automated profiling, schema validation, lineage tracking, and anomaly detection. Poor data quality is the number one reason AI models fail in production.</p></div>
+        </div>
+        <div class="faq-item fade-up">
+          <div class="faq-question">What is the difference between Databricks and Snowflake?</div>
+          <div class="faq-answer"><p>Databricks excels at large-scale data engineering, ML workloads, and real-time streaming on a unified lakehouse. Snowflake is stronger for structured analytics, data sharing, and multi-cloud data warehousing. Parkar has production experience on both and recommends based on your specific workload requirements.</p></div>
+        </div>
+        <div class="faq-item fade-up">
+          <div class="faq-question">How quickly can you build an AI-ready data platform?</div>
+          <div class="faq-answer"><p>A Quick Win Assessment Workshop takes 2 weeks. From there, foundational data platform work typically delivers first production pipelines within 90 days, with enterprise-scale maturity by month 6.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ─── FOOTER ─── -->
+  <div id="footer-placeholder"></div>
+ 
+  <!-- ─── SCRIPTS ─── -->
+  <script src="../js/components.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/page-data.js"></script>
+  <script src="../js/solutions-headline-reveal.js"></script>
+
+<script>
+(function(){
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    item.querySelector('.faq-question').addEventListener('click', function() {
+      var wasActive = item.classList.contains('active');
+      // Close all
+      document.querySelectorAll('.faq-item.active').forEach(function(i) { i.classList.remove('active'); });
+      // Toggle clicked
+      if (!wasActive) item.classList.add('active');
+    });
+  });
+})();
+</script>
+</body>
+</html>
+ 
+ 

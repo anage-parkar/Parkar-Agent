@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIONIQ — The Enterprise Operating Model for Agentic AI | Parkar</title>
+  <meta name="description" content="AIONIQ gives enterprise teams a structured path from fragmented AI pilots to governed, production-ready agentic workflows — with governance, observability, and human oversight built in.">
+  <meta property="og:title" content="From AI Demo to Production in Weeks, Not a Year | AIONIQ">
+  <meta property="og:description" content="AIONIQ is Parkar's enterprise AI operating model — connecting data, apps, cloud, and ops into one governed execution engine. 12 agent templates. SOC2 certified. You pay for results, not process.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Site-wide styles -->
+  <link rel="stylesheet" href="../css/main.css?v=20260413">
+  <link rel="stylesheet" href="../css/navbar.css?v=20260413">
+  <link rel="stylesheet" href="../css/footer.css?v=20260413">
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="../css/aioniq.css?v=20260421">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NXHZDWK');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="icon" href="../assets/icons/favicon.png" />
+  <link rel="apple-touch-icon" sizes="256x256" href="../assets/icons/apple-touch-icon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AIONIQ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AIONIQ is Parkar's enterprise operating model for agentic AI. It provides a structured path from fragmented AI pilots to governed, production-ready agentic workflows \u2014 connecting data, apps, cloud, and operations into one reliable AI execution engine with governance, observability, and human oversight built in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is AIONIQ different from building AI in-house?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Building AI in-house typically takes 12\u201318 months and most pilots never reach production. AIONIQ provides pre-built agent templates, data connectors, governance frameworks, and deployment pipelines that compress this timeline to weeks. You get production-ready AI without building the entire infrastructure from scratch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is AIONIQ SOC2 certified?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. AIONIQ is SOC2 certified, ensuring enterprise-grade security, availability, and confidentiality controls. It also supports HIPAA compliance for healthcare workloads and includes built-in audit trails, role-based access, and data governance controls."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the AIONIQ commercial model look like?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Parkar invests Months 1\u20132 at no cost, building your AI readiness assessment and first agent workflows. Billing starts only when a production agent is live and delivering measurable value. You pay for results, not process."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="page-aioniq">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZDWK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- ─── NAVBAR (Component) ─── -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- ─── HERO ─── -->
+  <section class="aiq-hero" id="aiq-hero">
+    <div class="aiq-hero-bg">
+      <canvas id="aiq-neural-network"></canvas>
+    </div>
+    <div class="aiq-hero-content">
+      <div class="fade-in" style="text-align:center; margin-bottom:24px;">
+        <img src="../assets/aioniq_logo.png" alt="AIONIQ" style="height:clamp(32px,5vw,48px); width:auto; display:inline-block; filter:drop-shadow(0 0 30px rgba(0,217,255,0.25));">
+      </div>
+      <div class="aiq-hero-badge fade-in">Enterprise-Grade Agentic AI</div>
+      <h1 class="aiq-hero-title fade-in">
+        Getting AI From Demo to Production Takes<br> More Than a Year.<br>
+        <span class="aiq-gradient-text">With AIONIQ, It Takes Weeks.</span>
+      </h1>
+      <p class="aiq-hero-subtitle fade-in" style="max-width:680px; margin:0 auto 40px; font-size:16px; line-height:1.7; color:rgba(255,255,255,0.6);">
+        AIONIQ gives enterprise teams a structured path to production-ready agentic AI, with governance, observability, and human oversight built in from the start.
+      </p>
+      <div class="aiq-hero-cta fade-in" style="display:flex; flex-direction:row; align-items:center; justify-content:center; gap:16px;">
+        <a href="/contact" class="btn-primary">
+          See the Enterprise AI Operating Model →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── PROBLEM SECTION ─── -->
+  <section class="aiq-problem-section" id="aiq-problems">
+    <div class="container">
+      <div class="aiq-section-header">
+        <span class="aiq-label">The Challenge</span>
+        <h2 class="aiq-title">The Enterprise AI Problem</h2>
+        <p class="aiq-subtitle">Most organisations can build an AI pilot. Few can get it to production.</p>
+      </div>
+      <div class="aiq-problem-grid">
+        <div class="aiq-problem-card" data-card="1">
+          <div class="aiq-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+          </div>
+          <h3>Prioritisation Gap</h3>
+          <p>You have 500 AI ideas and no way to know which 3 are worth building first.</p>
+          <div class="aiq-card-glow"></div>
+        </div>
+        <div class="aiq-problem-card" data-card="2">
+          <div class="aiq-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3>Readiness Gap</h3>
+          <p>You discover your data isn't AI-ready halfway through the build after the budget is spent.</p>
+          <div class="aiq-card-glow"></div>
+        </div>
+        <div class="aiq-problem-card" data-card="3">
+          <div class="aiq-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3>Production Gap</h3>
+          <p>Your pilot gets approval, then dies at the compliance review because no one built the governance layer.</p>
+          <div class="aiq-card-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FRAMEWORK SECTION (accordion + visual) ─── -->
+  <section class="aiq-framework-section" id="aiq-platform">
+    <div class="container">
+      <div class="aiq-section-header">
+        <span class="aiq-label">How AIONIQ Works</span>
+        <h2 class="aiq-title">Your Path to Production</h2>
+        <p class="aiq-subtitle">From ideation to production-ready AI agents typically in 8&ndash;10 weeks.</p>
+      </div>
+
+      <div class="aiq-fw-layout">
+
+        <!-- Left: Stacked accordion cards -->
+        <div class="aiq-fw-cards">
+
+          <div class="aiq-fw-item active" data-phase="1">
+            <div class="aiq-fw-item-head">
+              <h3>IDENTIFY</h3>
+              <p>Prioritise 500+ use cases down to the 3 that matter most.</p>
+              <div class="aiq-fw-progress"><div class="aiq-fw-progress-fill"></div></div>
+            </div>
+            <div class="aiq-fw-item-body">
+              <span class="aiq-phase-gap-tag">Solves the Prioritisation Gap</span>
+              <ul>
+                <li>Use case scoring engine</li>
+                <li>ROI modeling &amp; feasibility analysis</li>
+                <li>Strategic alignment mapping</li>
+              </ul>
+              <div class="aiq-fw-output">
+                <span class="aiq-fw-output-label">Output</span>
+                <span class="aiq-fw-output-value">Wave 1/2/3 Prioritised Backlog</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="aiq-fw-item" data-phase="2">
+            <div class="aiq-fw-item-head">
+              <h3>ASSESS</h3>
+              <p>Diagnose what's blocking production before you spend the budget.</p>
+              <div class="aiq-fw-progress"><div class="aiq-fw-progress-fill"></div></div>
+            </div>
+            <div class="aiq-fw-item-body">
+              <span class="aiq-phase-gap-tag">Solves the Readiness Gap</span>
+              <ul>
+                <li>10-dimension readiness diagnostic</li>
+                <li>Data quality profiling</li>
+                <li>Integration &amp; security mapping</li>
+              </ul>
+              <div class="aiq-fw-output">
+                <span class="aiq-fw-output-label">Output</span>
+                <span class="aiq-fw-output-value">AI Readiness Scorecard</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="aiq-fw-item" data-phase="3">
+            <div class="aiq-fw-item-head">
+              <h3>BUILD &amp; GOVERN</h3>
+              <p>Ship to production with governance from day one.</p>
+              <div class="aiq-fw-progress"><div class="aiq-fw-progress-fill"></div></div>
+            </div>
+            <div class="aiq-fw-item-body">
+              <span class="aiq-phase-gap-tag">Solves the Production Gap</span>
+              <ul>
+                <li>Visual agent orchestration &amp; deployment</li>
+                <li>Enterprise governance &amp; compliance controls</li>
+                <li>Human-in-the-loop workflows</li>
+              </ul>
+              <div class="aiq-fw-output">
+                <span class="aiq-fw-output-label">Output</span>
+                <span class="aiq-fw-output-value">Production AI System</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Visual that swaps with active card -->
+        <div class="aiq-fw-visual">
+          <div class="aiq-fw-vis-panel active" data-vis="1">
+            <div class="aiq-identify-visual">
+              <div class="aiq-search-radar"></div>
+              <div class="aiq-data-points">
+                <div class="aiq-data-point" style="top:20%;left:30%;"></div>
+                <div class="aiq-data-point" style="top:50%;left:60%;"></div>
+                <div class="aiq-data-point" style="top:70%;left:20%;"></div>
+                <div class="aiq-data-point" style="top:30%;left:80%;"></div>
+                <div class="aiq-data-point highlight" style="top:45%;left:45%;"></div>
+              </div>
+              <div class="aiq-scan-line"></div>
+            </div>
+          </div>
+          <div class="aiq-fw-vis-panel" data-vis="2">
+            <div class="aiq-assess-visual">
+              <div class="aiq-gauge-container">
+                <svg viewBox="0 0 200 120" class="aiq-gauge-svg">
+                  <defs>
+                    <linearGradient id="aiqGaugeGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" style="stop-color:#00D9FF"/>
+                      <stop offset="100%" style="stop-color:#7B61FF"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="12" stroke-linecap="round"/>
+                  <path class="aiq-gauge-progress" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#aiqGaugeGrad2)" stroke-width="12" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="75"/>
+                </svg>
+                <div class="aiq-gauge-value">75%</div>
+                <div class="aiq-gauge-label">Readiness</div>
+              </div>
+              <div class="aiq-check-marks">
+                <div class="aiq-check-item"><span class="aiq-check-icon">✓</span> Data Quality</div>
+                <div class="aiq-check-item"><span class="aiq-check-icon">✓</span> Security</div>
+                <div class="aiq-check-item"><span class="aiq-check-icon">✓</span> Integration</div>
+              </div>
+            </div>
+          </div>
+          <div class="aiq-fw-vis-panel" data-vis="3">
+            <div class="aiq-build-visual">
+              <div class="aiq-construction-layers">
+                <div class="aiq-layer-bar" style="width:100%;animation-delay:0s;"></div>
+                <div class="aiq-layer-bar" style="width:80%;animation-delay:0.3s;"></div>
+                <div class="aiq-layer-bar" style="width:60%;animation-delay:0.6s;"></div>
+                <div class="aiq-layer-bar" style="width:40%;animation-delay:0.9s;"></div>
+              </div>
+              <div class="aiq-shield-overlay">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              </div>
+              <div class="aiq-build-particles">
+                <div class="aiq-particle"></div>
+                <div class="aiq-particle"></div>
+                <div class="aiq-particle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.aiq-fw-layout -->
+
+      <div class="aiq-invest-bar">
+        <p class="aiq-invest-copy">Parkar invests Months 1 &amp; 2 at <span class="aiq-invest-hl">no cost</span>. Billing begins at Month 3 &mdash; when a production agent is running in your environment.<br> <strong>You pay for results, not process.</strong></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── AI READINESS SCORECARD ─── -->
+  <section class="aiq-scorecard-section" id="aiq-scorecard">
+    <div class="container">
+      <div class="aiq-section-header">
+        <span class="aiq-label">Mind Your Gaps</span>
+        <h2 class="aiq-title">AI Readiness Scorecard</h2>
+        <p class="aiq-subtitle">Here is what your AIONIQ readiness score reveals &mdash; and what it means for your deployment timeline.</p>
+      </div>
+
+      <!-- Dashboard card -->
+      <div class="aiq-sc-dashboard">
+
+        <!-- Overall score ring -->
+        <div class="aiq-sc-overall">
+          <div class="aiq-sc-ring">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
+              <circle cx="60" cy="60" r="52" fill="none" stroke="url(#scRingGrad)" stroke-width="8" stroke-linecap="round"
+                      stroke-dasharray="327" stroke-dashoffset="72" transform="rotate(-90 60 60)"/>
+              <defs><linearGradient id="scRingGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#00D9FF"/><stop offset="100%" stop-color="#7B61FF"/>
+              </linearGradient></defs>
+            </svg>
+            <div class="aiq-sc-ring-value">73<span>%</span></div>
+          </div>
+          <div class="aiq-sc-overall-label">Overall Readiness</div>
+          <div class="aiq-sc-overall-note">5 of 10 dimensions shown &mdash; full diagnostic in your Assess session.</div>
+        </div>
+
+        <!-- Dimension rows -->
+        <div class="aiq-sc-dims">
+
+          <div class="aiq-sc-dim" data-status="strong">
+            <div class="aiq-sc-dim-ring">
+              <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="#22C55E" stroke-width="4" stroke-linecap="round" stroke-dasharray="113" stroke-dashoffset="9" transform="rotate(-90 22 22)"/></svg>
+              <span class="aiq-sc-dim-pct">92</span>
+            </div>
+            <div class="aiq-sc-dim-info">
+              <span class="aiq-sc-dim-name">Data Architecture</span>
+              <span class="aiq-sc-dim-sub">Schema maturity, lake/warehouse readiness, data quality pipelines</span>
+            </div>
+            <span class="aiq-sc-badge strong">Strong</span>
+          </div>
+
+          <div class="aiq-sc-dim" data-status="strong">
+            <div class="aiq-sc-dim-ring">
+              <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="#22C55E" stroke-width="4" stroke-linecap="round" stroke-dasharray="113" stroke-dashoffset="14" transform="rotate(-90 22 22)"/></svg>
+              <span class="aiq-sc-dim-pct">88</span>
+            </div>
+            <div class="aiq-sc-dim-info">
+              <span class="aiq-sc-dim-name">Security &amp; Compliance</span>
+              <span class="aiq-sc-dim-sub">RBAC, encryption, audit trails, regulatory alignment</span>
+            </div>
+            <span class="aiq-sc-badge strong">Strong</span>
+          </div>
+
+          <div class="aiq-sc-dim" data-status="emerging">
+            <div class="aiq-sc-dim-ring">
+              <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="#FBBF24" stroke-width="4" stroke-linecap="round" stroke-dasharray="113" stroke-dashoffset="32" transform="rotate(-90 22 22)"/></svg>
+              <span class="aiq-sc-dim-pct">72</span>
+            </div>
+            <div class="aiq-sc-dim-info">
+              <span class="aiq-sc-dim-name">ML / AI Maturity</span>
+              <span class="aiq-sc-dim-sub">Model ops, experiment tracking, feature store readiness</span>
+            </div>
+            <span class="aiq-sc-badge emerging">Emerging</span>
+          </div>
+
+          <div class="aiq-sc-dim" data-status="emerging">
+            <div class="aiq-sc-dim-ring">
+              <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="#FBBF24" stroke-width="4" stroke-linecap="round" stroke-dasharray="113" stroke-dashoffset="36" transform="rotate(-90 22 22)"/></svg>
+              <span class="aiq-sc-dim-pct">68</span>
+            </div>
+            <div class="aiq-sc-dim-info">
+              <span class="aiq-sc-dim-name">Integration Readiness</span>
+              <span class="aiq-sc-dim-sub">API coverage, connector availability, latency tolerance</span>
+            </div>
+            <span class="aiq-sc-badge emerging">Emerging</span>
+          </div>
+
+          <div class="aiq-sc-dim" data-status="needs">
+            <div class="aiq-sc-dim-ring">
+              <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="#EF4444" stroke-width="4" stroke-linecap="round" stroke-dasharray="113" stroke-dashoffset="62" transform="rotate(-90 22 22)"/></svg>
+              <span class="aiq-sc-dim-pct">45</span>
+            </div>
+            <div class="aiq-sc-dim-info">
+              <span class="aiq-sc-dim-name">Change Management</span>
+              <span class="aiq-sc-dim-sub">Stakeholder buy-in, training readiness, org alignment</span>
+            </div>
+            <span class="aiq-sc-badge needs">At Risk</span>
+          </div>
+
+          <div class="aiq-sc-consequence">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            A Change Management score below 50% typically adds 4&ndash;6 weeks to deployment. We address this directly in the ASSESS phase.
+          </div>
+
+        </div>
+
+      </div><!-- /.aiq-sc-dashboard -->
+    </div>
+  </section>
+
+  <!-- ─── CUSTOMER OUTCOMES / PROOF (Row 7) ─── -->
+  <section class="aiq-outcomes-section">
+    <div class="container">
+      <div class="aiq-section-header">
+        <span class="aiq-label">Proof</span>
+        <h2 class="aiq-title">Real Outcomes, Real Teams</h2>
+      </div>
+      <div class="aiq-outcomes-grid">
+        <div class="aiq-outcome-card">
+          <span class="aiq-outcome-badge">Production Gap</span>
+          <div class="aiq-outcome-metric">30%</div>
+          <p class="aiq-outcome-desc">Reduction in compliance reporting time &mdash; from pilot to governed production in 8 weeks.</p>
+          <span class="aiq-outcome-tag">FinTech</span>
+        </div>
+        <div class="aiq-outcome-card">
+          <span class="aiq-outcome-badge">Readiness Gap</span>
+          <div class="aiq-outcome-metric">6 weeks</div>
+          <p class="aiq-outcome-desc">Full AI Readiness Assessment to production deployment &mdash; zero compliance blockers.</p>
+          <span class="aiq-outcome-tag">Healthcare</span>
+        </div>
+        <div class="aiq-outcome-card">
+          <span class="aiq-outcome-badge">Prioritisation Gap</span>
+          <div class="aiq-outcome-metric">3x</div>
+          <p class="aiq-outcome-desc">Faster agent deployment vs. custom build with visual orchestration &amp; pre-built governance.</p>
+          <span class="aiq-outcome-tag">Enterprise</span>
+        </div>
+        <div class="aiq-outcome-card">
+          <span class="aiq-outcome-badge">ROI Gap</span>
+          <div class="aiq-outcome-metric">5&times;</div>
+          <p class="aiq-outcome-desc">Average Wave 1 ROI across AIONIQ deployments.</p>
+          <span class="aiq-outcome-tag">Cross-Industry</span>
+        </div>
+      </div>
+      <div style="display:none;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURES SECTION ─── -->
+  <!-- ─── PLATFORM COMPONENTS ─── -->
+  <section class="aiq-features-section" id="aiq-features">
+    <div class="container">
+      <div class="aiq-section-header">
+        <span class="aiq-label">Platform Components</span>
+        <h2 class="aiq-title">The Operating Core of Agentic AI</h2>
+        <p class="aiq-subtitle">AIONIQ combines core platform components with execution accelerators to help enterprises move from AI pilots to production &mdash; faster, safer, and at scale.</p>
+      </div>
+
+      <!-- Five Pillars: 5×1 vertical row -->
+      <div class="aiq-pillars">
+        <div class="aiq-pillar" data-pillar="1">
+          <div class="aiq-pillar-num" hidden>01</div>
+          <div class="aiq-pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18M3 15h18"/></svg>
+          </div>
+          <h3>Agent Builder</h3>
+          <p class="aiq-pillar-lead">Design, orchestrate, and deploy multi-step AI workflows visually — without starting from scratch.</p>
+          <div class="aiq-pillar-caps-label">Capabilities</div>
+          <ul class="aiq-pillar-caps">
+            <li>Multi-Agent Orchestration</li>
+            <li>No-Code / Low-Code Interface</li>
+            <li>LangGraph &amp; CrewAI Support</li>
+          </ul>
+        </div>
+
+        <div class="aiq-pillar" data-pillar="2">
+          <div class="aiq-pillar-num" hidden>02</div>
+          <div class="aiq-pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+          </div>
+          <h3>Data Layer</h3>
+          <p class="aiq-pillar-lead">Every AI workflow runs on clean, trusted, and business-ready data — not fragmented inputs.</p>
+          <div class="aiq-pillar-caps-label">Capabilities</div>
+          <ul class="aiq-pillar-caps">
+            <li>12 pre-configured source connectors</li>
+            <li>Automated Quality Checks</li>
+            <li>Unified Semantic Layer</li>
+          </ul>
+        </div>
+
+        <div class="aiq-pillar" data-pillar="3">
+          <div class="aiq-pillar-num" hidden>03</div>
+          <div class="aiq-pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <h3>MCP Gateway</h3>
+          <p class="aiq-pillar-lead">Connect seamlessly to your enterprise ecosystem through a secure, unified access layer.</p>
+          <div class="aiq-pillar-caps-label">Capabilities</div>
+          <ul class="aiq-pillar-caps">
+            <li>SOC 2-certified managed gateway</li>
+            <li>1.8M tool calls/day</li>
+            <li>Cedar policy enforcement</li>
+          </ul>
+        </div>
+
+        <div class="aiq-pillar" data-pillar="4">
+          <div class="aiq-pillar-num" hidden>04</div>
+          <div class="aiq-pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3>Governance Engine</h3>
+          <p class="aiq-pillar-lead">Control, secure, and scale AI with enterprise-grade compliance without slowing innovation.</p>
+          <div class="aiq-pillar-caps-label">Capabilities</div>
+          <ul class="aiq-pillar-caps">
+            <li>RBAC</li>
+            <li>Full Audit Trails</li>
+            <li>Approval &amp; Workflow Controls</li>
+          </ul>
+        </div>
+
+        <div class="aiq-pillar" data-pillar="5">
+          <div class="aiq-pillar-num" hidden>05</div>
+          <div class="aiq-pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3>Execution Accelerators</h3>
+          <p class="aiq-pillar-lead">Production-ready modules that reduce time-to-value and eliminate repetitive groundwork.</p>
+          <div class="aiq-pillar-caps-label">Capabilities</div>
+          <ul class="aiq-pillar-caps">
+            <li>Industry Use Case Packs</li>
+            <li>Function-Specific Agents</li>
+            <li>Deployment Blueprints</li>
+          </ul>
+        </div>
+
+      </div><!-- /.aiq-pillars -->
+
+    </div>
+  </section>
+  <!-- ─── FINAL CTA ─── -->
+  <section class="aiq-final-cta">
+    <div class="container">
+      <div class="aiq-cta-content">
+        <span class="aiq-cta-eyebrow">Get Started</span>
+        <h2>Examine Where You Are in Your AI Journey</h2>
+        <p>Book a 5-day AIONIQ Assessment and leave with a scored diagnostic and a prioritised 90-day roadmap, with no commitments required.</p>
+        <a href="/contact" class="hp-cta-btn">
+          <span class="hp-cta-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0"/><path d="M15 16l4-4"/><path d="M15 8l4 4"/></svg>
+          </span>
+          <span class="hp-cta-text">Book an AI Readiness Session</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ SECTION (AEO) ═══ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-head fade-up">
+        <span class="section-label">Frequently Asked Questions</span>
+        <h2>Got Questions? <span>We've Got Answers.</span></h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item fade-up">
+          <div class="faq-question">What is AIONIQ?</div>
+          <div class="faq-answer"><p>AIONIQ is Parkar's enterprise operating model for agentic AI. It provides a structured path from fragmented AI pilots to governed, production-ready agentic workflows — connecting data, apps, cloud, and operations into one reliable AI execution engine with governance, observability, and human oversight built in.</p></div>
+        </div>
+        <div class="faq-item fade-up">
+          <div class="faq-question">How is AIONIQ different from building AI in-house?</div>
+          <div class="faq-answer"><p>Building AI in-house typically takes 12–18 months and most pilots never reach production. AIONIQ provides pre-built agent templates, data connectors, governance frameworks, and deployment pipelines that compress this timeline to weeks. You get production-ready AI without building the entire infrastructure from scratch.</p></div>
+        </div>
+        <div class="faq-item fade-up">
+          <div class="faq-question">Is AIONIQ SOC2 certified?</div>
+          <div class="faq-answer"><p>Yes. AIONIQ is SOC2 certified, ensuring enterprise-grade security, availability, and confidentiality controls. It also supports HIPAA compliance for healthcare workloads and includes built-in audit trails, role-based access, and data governance controls.</p></div>
+        </div>
+        <div class="faq-item fade-up">
+          <div class="faq-question">What does the AIONIQ commercial model look like?</div>
+          <div class="faq-answer"><p>Parkar invests Months 1–2 at no cost, building your AI readiness assessment and first agent workflows. Billing starts only when a production agent is live and delivering measurable value. You pay for results, not process.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER (Component) ─── -->
+  <div id="footer-placeholder"></div>
+
+  <!-- ─── COMPONENT SCRIPTS ─── -->
+  <script src="../js/components.js"></script>
+  <script src="../js/navbar.js"></script>
+  <!-- ─── PAGE SCRIPT ─── -->
+  <script src="../js/page-aioniq.js"></script>
+
+
+<script>
+(function(){
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    item.querySelector('.faq-question').addEventListener('click', function() {
+      var wasActive = item.classList.contains('active');
+      // Close all
+      document.querySelectorAll('.faq-item.active').forEach(function(i) { i.classList.remove('active'); });
+      // Toggle clicked
+      if (!wasActive) item.classList.add('active');
+    });
+  });
+})();
+</script>
+</body>
+</html>

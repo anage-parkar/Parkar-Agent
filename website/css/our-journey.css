@@ -1,0 +1,1175 @@
+/* =============================================
+   PARKAR.IN – Our Journey Page Styles
+   css/our-journey.css
+   Used by: pages/Company/OurJourney.html
+   ============================================= */
+
+/* ── Base overrides (solutions.css already loaded) ── */
+body {
+  background-color: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body::-webkit-scrollbar { display: none; }
+
+/* ── Scroll reveal animations ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.72s ease, transform 0.72s ease;
+}
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.72s ease;
+}
+.fade-up.visible,
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ═══════════════════════════════════════════
+   1. HERO
+═══════════════════════════════════════════ */
+.oj-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(27,174,159,0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 5% 80%, rgba(27,174,159,0.04) 0%, transparent 55%),
+    var(--navy);
+}
+
+.oj-hero-inner {
+  max-width: 760px;
+  padding: 100px 0 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.oj-hero-h1 {
+  font-family: var(--font-head);
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: var(--white);
+  margin: 0;
+}
+
+.oj-hero-sub {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.85;
+  color: rgba(255,255,255,0.62);
+  max-width: 660px;
+}
+
+
+/* ═══════════════════════════════════════════
+   2. WHO WE ARE
+═══════════════════════════════════════════ */
+.oj-who {
+  padding: 100px 0;
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border);
+}
+
+.oj-who-inner {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.oj-who-label {
+  padding-top: 6px;
+}
+
+.oj-highlight-para {
+  font-family: var(--font-head);
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--white);
+  letter-spacing: -0.1px;
+}
+
+.oj-highlight-para strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+
+/* ═══════════════════════════════════════════
+   3. OUR PHILOSOPHY
+═══════════════════════════════════════════ */
+.oj-philosophy {
+  padding: 100px 0;
+  background: var(--navy);
+  border-top: 1px solid var(--border);
+}
+
+.oj-philosophy-header {
+  max-width: 680px;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.oj-philosophy-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(30px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+  color: var(--white);
+  margin: 0;
+}
+
+.oj-philosophy-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.55);
+}
+
+.oj-philosophy-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: stretch;
+}
+
+.oj-philosophy-img {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 480px;
+}
+
+.oj-philosophy-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.oj-philosophy-img:hover img {
+  transform: scale(1.03);
+}
+
+.oj-philosophy-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.oj-philosophy-card {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.oj-philosophy-card:last-child {
+  border-bottom: none;
+}
+
+.oj-phil-title {
+  font-family: var(--font-head);
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.oj-phil-sep {
+  width: 40px;
+  height: 2px;
+  background: rgba(27,174,159,0.5);
+  border-radius: 2px;
+}
+
+.oj-phil-sub {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+}
+
+
+/* ═══════════════════════════════════════════
+   4. DRIVING INNOVATION
+═══════════════════════════════════════════ */
+.oj-driving {
+  padding: 100px 0;
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border);
+}
+
+.oj-driving-inner {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.oj-driving-label {
+  padding-top: 6px;
+}
+
+
+/* ═══════════════════════════════════════════
+   5. OUR FOOTPRINT / GLOBAL HUBS
+═══════════════════════════════════════════ */
+.oj-map {
+  padding-top: 100px;
+  padding-bottom: 0;
+  background: var(--navy);
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.oj-map-header {
+  max-width: 560px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.oj-map-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(30px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+  color: var(--white);
+  margin: 0;
+}
+
+.oj-map-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.55);
+}
+
+.oj-map-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: block;
+}
+
+.oj-map-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.85;
+}
+
+/* Location name labels */
+.oj-location {
+  position: absolute;
+  pointer-events: none;
+}
+
+.oj-location.usa {
+  left: 13%;
+  top: 31%;
+  width: clamp(70px, 8vw, 110px);
+}
+
+.oj-location.india {
+  left: 62%;
+  top: 38%;
+  width: clamp(55px, 6vw, 85px);
+}
+
+.oj-location.apac {
+  left: 77%;
+  top: 42%;
+  width: clamp(55px, 6vw, 85px);
+}
+
+.oj-location.middle-east {
+  left: 57%;
+  top: 45%;
+  width: clamp(70px, 7.5vw, 100px);
+}
+
+/* Map pin icons */
+.oj-map-icon {
+  position: absolute;
+  width: clamp(22px, 2.5vw, 32px);
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(27,174,159,0.6));
+}
+
+.oj-map-icon._1 { left: 17%;  top: 27%; }   /* USA */
+.oj-map-icon._2 { left: 63%;  top: 34%; }   /* India */
+.oj-map-icon._3 { left: 79%;  top: 38%; }   /* APAC */
+.oj-map-icon._4 { left: 58%;  top: 41%; }   /* Middle East */
+
+
+/* ═══════════════════════════════════════════
+   6. OUR VALUES (WHITE BACKGROUND)
+═══════════════════════════════════════════ */
+.oj-values {
+  padding: 100px 0;
+  background: #f5f5f5;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.oj-values-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 48px 80px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+
+.oj-values-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  padding-top: 4px;
+  white-space: nowrap;
+}
+
+.oj-values-desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(5,11,31,0.72);
+  max-width: 680px;
+}
+
+.oj-values-desc strong {
+  color: rgba(5,11,31,0.9);
+  font-weight: 700;
+}
+
+.oj-values-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+/* Value card */
+.oj-value-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+  background: #e8e8e8;
+}
+
+.oj-value-thumb,
+.oj-value-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+.oj-value-thumb {
+  opacity: 1;
+  z-index: 1;
+}
+
+.oj-value-overlay {
+  opacity: 0;
+  z-index: 2;
+}
+
+.oj-value-card:hover .oj-value-overlay {
+  opacity: 1;
+}
+
+.oj-value-card:hover .oj-value-thumb {
+  opacity: 0;
+}
+
+.oj-value-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 20px 18px;
+  background: linear-gradient(to top, rgba(5,11,31,0.92) 0%, rgba(5,11,31,0.6) 60%, transparent 100%);
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.oj-value-num {
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--teal);
+  text-transform: uppercase;
+}
+
+.oj-value-title {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.oj-value-sub {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+  margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════
+   7. OUR HISTORY / MILESTONES
+═══════════════════════════════════════════ */
+.oj-history {
+  padding: 100px 0 120px;
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border);
+}
+
+.oj-history-header {
+  text-align: center;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.oj-history-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+  color: var(--white);
+  margin: 0;
+}
+
+/* Year tabs strip */
+.oj-year-tabs {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 56px;
+  gap: 0;
+  padding-bottom: 2px;
+}
+
+.oj-year-tabs::-webkit-scrollbar { display: none; }
+
+.oj-year-tab {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 14px 22px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease;
+  letter-spacing: 0.3px;
+  margin-bottom: -1px;
+}
+
+.oj-year-tab:hover {
+  color: rgba(255,255,255,0.8);
+}
+
+.oj-year-tab.active {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
+
+/* Panel container */
+.oj-history-panels {
+  position: relative;
+}
+
+.oj-history-panel {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.oj-history-panel.active {
+  display: grid;
+  animation: ojPanelIn 0.45s ease forwards;
+}
+
+@keyframes ojPanelIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Image */
+.oj-history-img {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 420px;
+  flex-shrink: 0;
+}
+
+.oj-history-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+/* Content */
+.oj-history-content {
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.oj-history-year-bg {
+  font-family: var(--font-head);
+  font-size: 80px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.05);
+  line-height: 1;
+  letter-spacing: -3px;
+  margin-bottom: -24px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.oj-history-milestone {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 28px 0;
+  line-height: 1.25;
+  position: relative;
+  z-index: 1;
+}
+
+.oj-history-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.oj-history-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+}
+
+.oj-history-bullets li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  margin-top: 8px;
+}
+
+
+/* ═══════════════════════════════════════════
+   8. LIFE AT PARKAR
+═══════════════════════════════════════════ */
+.oj-life {
+  padding: 100px 0;
+  background: var(--navy);
+  border-top: 1px solid var(--border);
+}
+
+.oj-life-header {
+  max-width: 720px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.oj-life-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+  color: var(--white);
+  margin: 0;
+}
+
+.oj-life-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.55);
+}
+
+/* Diversity grid: 3 cols, 3 rows */
+.oj-diversity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 16px;
+}
+
+/* Images */
+.oj-div-img {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 300px;
+}
+
+.oj-div-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.oj-div-img:hover .oj-div-photo {
+  transform: scale(1.04);
+}
+
+/* Content blocks */
+.oj-div-block {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  height: 300px;
+}
+
+.oj-div-block.center-block {
+  align-items: center;
+  justify-content: center;
+}
+
+.oj-div-logo {
+  width: 140px;
+  height: auto;
+  opacity: 0.85;
+  filter: brightness(0) invert(1);
+}
+
+.oj-div-title {
+  font-family: var(--font-head);
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 700;
+  color: var(--teal);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.oj-div-sub {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.62);
+  margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════
+   9. WHY PARKAR
+═══════════════════════════════════════════ */
+.oj-why {
+  padding: 100px 0 120px;
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border);
+}
+
+.oj-why-inner {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Left column */
+.oj-why-left {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.oj-why-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  color: var(--white);
+  margin: 0;
+}
+
+.oj-why-desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Right column */
+.oj-why-right {
+  position: relative;
+}
+
+.oj-why-line {
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  z-index: 0;
+}
+
+.oj-why-line-inner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--teal) 0%, rgba(27,174,159,0.15) 100%);
+  border-radius: 2px;
+}
+
+.oj-why-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Each point */
+.oj-why-point {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.oj-why-point.last {
+  border-bottom: none;
+}
+
+/* Circle */
+.oj-why-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--navy-mid);
+  border: 2px solid rgba(27,174,159,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: border-color 0.3s;
+}
+
+.oj-why-point:hover .oj-why-circle {
+  border-color: var(--teal);
+}
+
+.oj-why-circle-inner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+/* Text */
+.oj-why-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.oj-why-title {
+  font-family: var(--font-head);
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 700;
+  color: var(--teal);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.oj-why-sub {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════
+   10. OUR VISION FOR TOMORROW
+═══════════════════════════════════════════ */
+.oj-vision {
+  padding: 100px 0;
+  background: var(--navy);
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.oj-vision::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 70% at 70% 50%, rgba(27,174,159,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 80% at 10% 50%, rgba(27,174,159,0.04) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.oj-vision-inner {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.oj-vision-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.oj-vision-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  color: var(--white);
+  margin: 0;
+}
+
+/* Content */
+.oj-vision-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.oj-vision-lead {
+  font-family: var(--font-head);
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+}
+
+/* Ticks */
+.oj-vision-ticks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.oj-vision-tick {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.72);
+}
+
+.oj-tick-svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* 2025 and Beyond */
+.oj-vision-beyond {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.oj-vision-beyond-title {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0;
+}
+
+.oj-vision-point {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+}
+
+.oj-vision-dot {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  display: inline-block;
+}
+
+
+/* ═══════════════════════════════════════════
+   11. JOIN THE PARKAR REVOLUTION (CTA)
+═══════════════════════════════════════════ */
+.oj-cta {
+  padding: 100px 0;
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.oj-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(27,174,159,0.08) 0%, rgba(27,174,159,0.02) 100%);
+  pointer-events: none;
+}
+
+.oj-cta-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.oj-cta-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+  color: var(--white);
+  margin: 0;
+}
+
+.oj-cta-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  max-width: 580px;
+}
+
+.oj-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.oj-cta-btn:hover {
+  background: var(--teal-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(27,174,159,0.3);
+}
+
+.oj-cta-btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE – Tablet (≤ 1024px)
+═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .oj-who-inner,
+  .oj-driving-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .oj-philosophy-body {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .oj-philosophy-img { height: 360px; }
+
+  .oj-values-header {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .oj-values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .oj-history-panel.active {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .oj-history-img { height: 300px; }
+
+  .oj-diversity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .oj-why-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .oj-why-left { position: static; }
+
+  .oj-vision-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE – Mobile (≤ 768px)
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .oj-hero {
+    min-height: auto;
+    padding-top: 80px;
+  }
+
+  .oj-hero-inner { padding: 60px 0 48px; }
+
+  .oj-hero-h1 { font-size: 44px; letter-spacing: -0.5px; }
+
+  .oj-who,
+  .oj-philosophy,
+  .oj-driving,
+  .oj-map,
+  .oj-values,
+  .oj-history,
+  .oj-life,
+  .oj-why,
+  .oj-vision,
+  .oj-cta {
+    padding: 64px 0;
+  }
+
+  .oj-philosophy-img { height: 260px; }
+
+  .oj-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .oj-year-tab { padding: 10px 14px; font-size: 14px; }
+
+  .oj-history-year-bg { font-size: 56px; }
+
+  .oj-diversity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .oj-div-img, .oj-div-block { height: 260px; }
+
+  .oj-why-inner { gap: 32px; }
+}
+
+@media (max-width: 480px) {
+  .oj-hero-h1 { font-size: 36px; }
+
+  .oj-values-grid { grid-template-columns: 1fr; }
+
+  .container { padding: 0 20px; }
+}
+
+/* ── Touch device: tapped state for value cards ── */
+.oj-value-card.tapped .oj-value-overlay { opacity: 1; }
+.oj-value-card.tapped .oj-value-thumb   { opacity: 0; }

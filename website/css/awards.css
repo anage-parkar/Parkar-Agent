@@ -1,0 +1,595 @@
+/* =============================================
+   PARKAR.IN – Awards & Recognitions Page Styles
+   css/awards.css
+   Used by: pages/Company/AwardsRecognitions.html
+   ============================================= */
+
+/* ── Base overrides (solutions.css already loaded) ── */
+body {
+  background-color: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body::-webkit-scrollbar { display: none; }
+
+/* ── Scroll reveal animations ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.72s ease, transform 0.72s ease;
+}
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.72s ease;
+}
+.fade-up.visible,
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────────
+   1. HERO
+───────────────────────────────────────────── */
+.ar-hero {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+  background-color: var(--navy);
+  background-image: url('https://cdn.prod.website-files.com/66fa50f0631f1401a2a41200/69c6882e3be9b9c3e57eb675_Herocc.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding-bottom: 80px;
+}
+
+/* gradient overlay – keeps text legible */
+.ar-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(5, 11, 31, 0.85) 0%,
+    rgba(5, 11, 31, 0.55) 55%,
+    rgba(5, 11, 31, 0.20) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* bottom dark fade for smooth transition into body */
+.ar-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(to top, var(--navy), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ar-hero .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.ar-hero-inner {
+  max-width: 680px;
+}
+
+.ar-hero-h1 {
+  font-family: var(--font-head);
+  font-size: clamp(42px, 6vw, 84px);
+  font-weight: 700;
+  line-height: 1.07;
+  letter-spacing: -1px;
+  color: var(--white);
+  margin: 0;
+}
+
+
+/* ─────────────────────────────────────────────
+   2. AWARDS GRID SECTION
+───────────────────────────────────────────── */
+.ar-awards-section {
+  padding: 100px 0 80px;
+  background: var(--navy);
+}
+
+/* ── 3-column grid ── */
+.ar-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ─────────────────────────────────────────────
+   3. AWARD CARD
+───────────────────────────────────────────── */
+.ar-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.3s ease,
+    box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.ar-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(27, 174, 159, 0.45);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(27, 174, 159, 0.15);
+}
+
+/* teal top-border accent – appears on hover */
+.ar-card-accent {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal) 0%, rgba(27,174,159,0.4) 60%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+.ar-card:hover .ar-card-accent {
+  opacity: 1;
+}
+
+/* ── Image wrapper ── */
+.ar-card-img-wrap {
+  position: relative;
+  height: 224px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--navy-mid);
+}
+
+/* blurred background layer (same src, creates "glow" fill effect) */
+.ar-card-img-bg {
+  position: absolute;
+  inset: -8%;
+  width: 116%;
+  height: 116%;
+  object-fit: cover;
+  filter: blur(14px) brightness(0.45) saturate(1.2);
+  transform: scale(1);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+/* sharp foreground layer */
+.ar-card-img-main {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform 0.6s ease;
+}
+
+.ar-card:hover .ar-card-img-bg,
+.ar-card:hover .ar-card-img-main {
+  transform: scale(1.06);
+}
+
+/* bottom gradient overlay */
+.ar-card-img-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    rgba(5, 11, 31, 0.82) 0%,
+    rgba(5, 11, 31, 0.3)  45%,
+    transparent           75%
+  );
+  transition: background 0.3s ease;
+}
+
+.ar-card:hover .ar-card-img-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(5, 11, 31, 0.65) 0%,
+    rgba(5, 11, 31, 0.15) 50%,
+    transparent           80%
+  );
+}
+
+/* ── Card content ── */
+.ar-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 24px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ar-card-title {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--white);
+  letter-spacing: -0.1px;
+  margin: 0 0 20px;
+  flex: 1;
+}
+
+/* ── Learn More button ── */
+.ar-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.25s ease, gap 0.25s ease;
+  align-self: flex-start;
+}
+
+.ar-card:hover .ar-card-btn {
+  color: var(--teal);
+  gap: 12px;
+}
+
+.ar-card-btn-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  flex-shrink: 0;
+}
+
+.ar-card:hover .ar-card-btn-arrow {
+  border-color: var(--teal);
+  background: rgba(27, 174, 159, 0.12);
+}
+
+.ar-card-btn-arrow svg {
+  width: 7px;
+  height: 7px;
+}
+
+
+/* ─────────────────────────────────────────────
+   4. CTA BLOCK
+───────────────────────────────────────────── */
+.ar-cta-block {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 50%, rgba(27,174,159,0.14) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 60% at 20% 80%, rgba(27,174,159,0.07) 0%, transparent 55%),
+    var(--navy-mid);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* subtle grid texture */
+.ar-cta-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.ar-cta-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.ar-cta-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  color: var(--white);
+  margin: 0 0 20px;
+}
+
+.ar-cta-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 40px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Get Started button (Webflow-style text-swap) ── */
+.ar-cta-btn-wrap {
+  display: inline-block;
+}
+
+.ar-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 52px;
+  padding: 0 32px;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  position: relative;
+}
+
+.ar-cta-btn:hover {
+  background: var(--teal-dark);
+  transform: translateY(-2px);
+}
+
+/* text-swap layers */
+.ar-cta-btn-t1,
+.ar-cta-btn-t2 {
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  white-space: nowrap;
+}
+.ar-cta-btn-t2 {
+  position: absolute;
+  transform: translateY(100%);
+  opacity: 0;
+}
+.ar-cta-btn:hover .ar-cta-btn-t1 {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.ar-cta-btn:hover .ar-cta-btn-t2 {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+/* ─────────────────────────────────────────────
+   5. WEBINARS SECTION ("You may also interested in")
+───────────────────────────────────────────── */
+.ar-webinars-section {
+  padding: 100px 0;
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.ar-webinars-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+
+.ar-webinars-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+  color: var(--white);
+  margin: 0 0 48px;
+}
+
+/* ── Webinar cards grid ── */
+.ar-webinar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Individual webinar card ── */
+.ar-webinar-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ar-webinar-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(27,174,159,0.4);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+}
+
+/* Image section */
+.ar-webinar-img-wrap {
+  position: relative;
+  height: 210px;
+  overflow: hidden;
+  background: var(--navy-mid);
+}
+
+.ar-webinar-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.ar-webinar-card:hover .ar-webinar-img {
+  transform: scale(1.06);
+}
+
+.ar-webinar-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 11, 31, 0.45);
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.ar-webinar-card:hover .ar-webinar-img-overlay {
+  background: rgba(5, 11, 31, 0.3);
+}
+
+/* Content section */
+.ar-webinar-content {
+  padding: 20px 24px 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.ar-webinar-title {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--white);
+  letter-spacing: -0.1px;
+  margin: 0 0 16px;
+}
+
+.ar-webinar-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ar-webinar-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ar-webinar-meta-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.ar-webinar-meta-text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.4;
+}
+
+
+/* ─────────────────────────────────────────────
+   6. RESPONSIVE
+───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .ar-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ar-webinar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ar-hero {
+    min-height: 420px;
+    padding-bottom: 60px;
+    background-position: 65% center;
+  }
+
+  .ar-awards-section {
+    padding: 60px 0;
+  }
+
+  .ar-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ar-card-img-wrap {
+    height: 200px;
+  }
+
+  .ar-cta-block {
+    padding: 72px 0;
+  }
+
+  .ar-webinars-section {
+    padding: 72px 0;
+  }
+
+  .ar-webinar-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ar-webinar-img-wrap {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ar-hero {
+    min-height: 380px;
+    padding-bottom: 48px;
+  }
+
+  .ar-hero-h1 {
+    font-size: 34px;
+  }
+
+  .ar-cta-h2 {
+    font-size: 26px;
+  }
+
+  .ar-cta-btn {
+    height: 48px;
+    padding: 0 24px;
+    font-size: 14px;
+  }
+}
+

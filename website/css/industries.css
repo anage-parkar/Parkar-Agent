@@ -1,0 +1,496 @@
+/* =============================================
+   PARKAR.IN - Industries Pages Shared Styles
+   css/industries.css
+   Used by: pages/Industries/FinancialServices.html
+            pages/Industries/Healthcare.html
+            pages/Industries/Manufacturing.html
+            pages/Industries/Media.html
+   ============================================= */
+
+/* ─── INDUSTRY HERO (full-viewport background image) ─── */
+.industry-hero {
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% 50%;
+  /* default fallback image */
+  background-image: url(https://cdn.prod.website-files.com/66fa50f0631f1401a2a41200/68e7ec02ea11d53e27e1169f_industry%20hero.webp);
+  padding-bottom: 80px;
+}
+
+/* dark gradient overlay so text is always legible */
+.industry-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(5, 11, 31, 0.82) 0%,
+    rgba(5, 11, 31, 0.55) 50%,
+    rgba(5, 11, 31, 0.15) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.industry-hero .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.industry-hero-content-wp {
+  max-width: 730px;
+}
+
+.industry-hero-h1 {
+  font-family: var(--font-head);
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.industry-hero-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 40px;
+  max-width: 520px;
+}
+
+/* ─── Financial Services specific bg ─── */
+.financial-hero {
+  background-image: url(https://cdn.prod.website-files.com/66fa50f0631f1401a2a41200/68fa3a8565a78344808facd5_ind-hero-2.webp);
+  background-position: 50% 0;
+}
+
+/* (responsive rules consolidated at bottom) */
+
+/* ─── Healthcare & Life Sciences specific bg ─── */
+.healthcare-hero {
+  background-image: url(https://cdn.prod.website-files.com/66fa50f0631f1401a2a41200/69023d7e1b5afbb4097bb755_heathcare.webp);
+  background-position: 50% 0;
+}
+
+/* (responsive rules consolidated at bottom) */
+
+/* ─── Manufacturing specific bg ─── */
+.manufacturing-hero {
+  background-image: url(https://cdn.prod.website-files.com/66fa50f0631f1401a2a41200/69023cd046195f9d9a608900_manufact.webp);
+  background-position: 50% 0;
+}
+
+/* (responsive rules consolidated at bottom) */
+
+/* ─── Media & Hi-Tech specific bg ─── */
+.media-hero {
+  background-image: url(https://cdn.prod.website-files.com/66fa50f0631f1401a2a41200/68fa3b184048d1486aba4927_industry-hero-4.webp);
+  background-position: 60% 0;
+}
+
+/* (responsive rules consolidated at bottom) */
+
+/* ─── Industry Solution Cards (icon-based, no photo) ─── */
+.fin-solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.fin-solution-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.fin-solution-card:hover {
+  border-color: rgba(27,174,159,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+.fin-solution-icon {
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fin-solution-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.fin-solution-card h3 {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #fff;
+  margin: 0;
+}
+
+/* ─── TESTIMONIALS + STATS (combined, two-column like Webflow) ─── */
+.testimonials {
+  padding: 100px 0;
+  background: var(--navy);
+  border-top: 1px solid var(--border);
+}
+.testimonials-intro {
+  text-align: center;
+  font-family: var(--font-head);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 600;
+  line-height: 1.35;
+  color: #fff;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+.testimonials-head-divider {
+  display: none;
+}
+.testimonials-body {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 56px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.testimonials-col-divider {
+  display: none;
+}
+
+/* LEFT COLUMN — testimonial slider */
+.testimonials-col-left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.testimonials-track {
+  flex: 1;
+}
+.testimonial-card {
+  display: none;
+}
+.testimonial-card.active {
+  display: block;
+}
+.testimonial-card::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 28px;
+  margin-bottom: 20px;
+  opacity: 0.4;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 28' fill='none'><path d='M0 28V17.2C0 12.4 1.2 8.53333 3.6 5.6C6.13333 2.53333 9.86667 0.666667 14.8 0L16 4.4C13.3333 5.2 11.2 6.53333 9.6 8.4C8.13333 10.1333 7.4 12.2667 7.4 14.8H14.8V28H0ZM20.4 28V17.2C20.4 12.4 21.6 8.53333 24 5.6C26.5333 2.53333 30.2667 0.666667 35.2 0L36.4 4.4C33.7333 5.2 31.6 6.53333 30 8.4C28.5333 10.1333 27.8 12.2667 27.8 14.8H35.2V28H20.4Z' fill='white'/></svg>") no-repeat center / contain;
+}
+.testimonial-quote-mark {
+  display: none;
+}
+.testimonial-quote {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 36px;
+  font-style: italic;
+}
+.testimonial-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.testimonial-company {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.testimonial-logo {
+  display: none;
+}
+
+/* Arrow row — single nav under testimonial column controls both sliders */
+.testimonials-nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+}
+.testimonials-col-right .testimonials-nav {
+  display: none;
+}
+.carousel-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.25s, border-color 0.25s;
+  padding: 0;
+}
+.carousel-arrow:hover {
+  background: rgba(27,174,159,0.1);
+  border-color: rgba(27,174,159,0.35);
+}
+.carousel-arrow img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* RIGHT COLUMN — stats sub-slider */
+.testimonials-col-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.stats-slider {
+  flex: 1;
+  position: relative;
+}
+.stats-slide {
+  display: none;
+  flex-direction: column;
+  gap: 40px;
+}
+.stats-slide.active {
+  display: flex;
+}
+.stats-slide .stat-item {
+  text-align: left;
+}
+.stats-slide .stat-number {
+  font-family: var(--font-head);
+  font-size: clamp(44px, 5vw, 64px);
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.stats-slide .stat-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.55;
+}
+
+/* ─── CERTIFICATIONS (dark background — matches live site) ─── */
+.certifications {
+  padding: 100px 0;
+  background: var(--navy);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.certifications .cert-head {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.certifications .cert-head h2 {
+  font-family: var(--font-head);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+/* Logos: 5 in a row */
+.cert-logos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cert-logos img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.cert-logos img:hover {
+  filter: brightness(1);
+  transform: scale(1.05);
+}
+
+/* ─── CASE STUDIES (industry variant — horizontal scroll) ─── */
+.case-studies-block {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+}
+.case-studies-block::-webkit-scrollbar { display: none; }
+.cs-scroll-card {
+  flex: 0 0 340px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.cs-scroll-card:hover {
+  border-color: rgba(27,174,159,0.3);
+  transform: translateY(-4px);
+}
+.cs-scroll-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.cs-scroll-card-body {
+  padding: 24px 20px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.cs-scroll-tag {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--teal);
+  margin-bottom: 10px;
+}
+.cs-scroll-card-body h3 {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: #fff;
+  flex: 1;
+  margin-bottom: 16px;
+}
+.cs-scroll-metric {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--teal);
+}
+.cs-scroll-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+  justify-content: flex-end;
+}
+.cs-scroll-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s;
+  padding: 0;
+}
+.cs-scroll-arrow:hover {
+  background: rgba(27,174,159,0.1);
+  border-color: rgba(27,174,159,0.35);
+}
+.cs-scroll-arrow img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* ─── RESPONSIVE ─── */
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .industry-hero { min-height: 500px; height: 80svh; padding-bottom: 60px; }
+  .fin-solutions-grid { gap: 20px; }
+  .testimonials-body { gap: 40px; }
+}
+
+@media (max-width: 900px) {
+  .industry-hero { min-height: 440px; height: 70svh; padding-bottom: 48px; }
+  .industry-hero-content-wp { max-width: 100%; }
+  .industry-hero-sub { max-width: 100%; margin-bottom: 28px; }
+  .fin-solutions-grid { grid-template-columns: 1fr; }
+  .fin-solution-card { padding: 32px 24px; gap: 20px; }
+  .testimonials { padding: 72px 0; }
+  .testimonials-intro { margin-bottom: 32px; }
+  .testimonials-head-divider { margin-bottom: 40px; }
+  .testimonials-body {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .testimonials-col-divider {
+    width: 100%;
+    height: 1px;
+  }
+  .stats-slide { gap: 32px; }
+  .certifications { padding: 72px 0; }
+  .cert-logos { gap: 48px; }
+  .certifications .cert-head { margin-bottom: 40px; }
+  .case-studies-block { gap: 16px; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .industry-hero { min-height: 380px; height: auto; padding: 120px 0 48px; }
+  .industry-hero-h1 { font-size: 28px; margin-bottom: 16px; }
+  .industry-hero-sub { font-size: 14px; line-height: 1.7; margin-bottom: 24px; }
+  .financial-hero,
+  .healthcare-hero,
+  .manufacturing-hero,
+  .media-hero { background-position: 65% center; }
+  .fin-solution-card { padding: 28px 20px; gap: 16px; }
+  .fin-solution-icon { width: 64px; height: 64px; }
+  .fin-solution-card h3 { font-size: 16px; }
+  .testimonials { padding: 56px 0; }
+  .testimonials-intro { font-size: 18px; margin-bottom: 24px; }
+  .testimonials-head-divider { margin-bottom: 32px; }
+  .testimonial-quote { font-size: 15px; margin-bottom: 24px; }
+  .testimonial-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .stats-slide .stat-number { font-size: clamp(36px, 10vw, 48px); }
+  .carousel-arrow { width: 40px; height: 40px; }
+  .certifications { padding: 56px 0; }
+  .certifications .cert-head { margin-bottom: 32px; }
+  .certifications .cert-head h2 { font-size: 24px; }
+  .cert-logos { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .cert-logos img { max-height: 80px; }
+  .cert-logos { gap: 32px; }
+  .cs-scroll-card { flex: 0 0 80vw; }
+  .cs-scroll-card-body { padding: 20px 16px 16px; }
+  .cs-scroll-nav { margin-top: 20px; }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .industry-hero { padding: 100px 0 40px; }
+  .industry-hero-h1 { font-size: 24px; }
+  .cert-logos { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .cert-logos img { max-height: 70px; }
+}

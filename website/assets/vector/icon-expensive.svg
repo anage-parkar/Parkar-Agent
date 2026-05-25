@@ -1,0 +1,17 @@
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="25.0036" cy="25.0007" r="18.3006" transform="rotate(150 25.0036 25.0007)" stroke="#4D4D4D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.14739 34.1492C4.09381 25.3962 7.09283 14.2037 15.8459 9.15015C24.5989 4.09657 35.7914 7.09559 40.845 15.8486" stroke="url(#paint0_linear_906_166)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25.0503 33.7705V34.6039V35.4372" stroke="#4D4D4D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25.0503 15.4365V16.2699V17.1032" stroke="#4D4D4D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30.0504 21.2702C30.0504 18.969 27.8118 17.1035 25.0503 17.1035C22.2889 17.1035 20.0503 18.969 20.0503 21.2702C20.0503 23.5714 22.2889 25.4369 25.0503 25.4369C27.8118 25.4369 30.0504 27.3024 30.0504 29.6037C30.0504 31.9049 27.8118 33.7704 25.0503 33.7704C22.2889 33.7704 20.0503 31.9049 20.0503 29.6037" stroke="url(#paint1_angular_906_166)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="paint0_linear_906_166" x1="28.1425" y1="6.5698" x2="10.6595" y2="34.7369" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#4D4D4D"/>
+</linearGradient>
+<radialGradient id="paint1_angular_906_166" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25.7806 23.0788) rotate(-1.59266) scale(5.10512 15.5116)">
+<stop stop-color="#4D4D4D"/>
+<stop offset="1" stop-color="white"/>
+</radialGradient>
+</defs>
+</svg>

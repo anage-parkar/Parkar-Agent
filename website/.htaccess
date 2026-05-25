@@ -1,0 +1,99 @@
+# ============================================================
+# Parkar.in – Apache .htaccess (Production)
+# Works on Apache 2.4+ with mod_rewrite enabled
+# ============================================================
+
+Options -Indexes
+RewriteEngine On
+
+# ── Force HTTPS ─────────────────────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── www → non-www ───────────────────────────────────────────
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# ── Static files pass-through (don't rewrite real files) ────
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# ════════════════════════════════════════════════════════════
+# CLEAN URL REWRITE RULES
+# ════════════════════════════════════════════════════════════
+
+# ── Platforms ────────────────────────────────────────────────
+RewriteRule ^platforms/aioniq$               pages/Platforms/AIONIQ.html              [L]
+RewriteRule ^platforms/vector$               pages/Vector/Overview.html               [L]
+RewriteRule ^platforms/vector-platform$      pages/Vector/Platform.html               [L]
+RewriteRule ^platforms/vector-integrations$  pages/Vector/Integration.html            [L]
+
+# ── Solutions ────────────────────────────────────────────────
+RewriteRule ^solutions/agentic-ai$           pages/Solutions/AgenticAI.html           [L]
+RewriteRule ^solutions/applications$         pages/Solutions/Applications.html        [L]
+RewriteRule ^solutions/data$                 pages/Solutions/Data.html                [L]
+RewriteRule ^solutions/cloud$                pages/Solutions/Cloud.html               [L]
+RewriteRule ^solutions/case-studies/(.+)$    pages/Solutions/case-studies/$1.html     [L]
+
+# ── GCC ──────────────────────────────────────────────────────
+RewriteRule ^gcc/overview$                   pages/GCC/Overview.html                  [L]
+RewriteRule ^gcc/managed-service$            pages/GCC/ManagedService.html            [L]
+RewriteRule ^gcc/pay-as-you-go$              pages/GCC/PayAsYouGo.html                [L]
+RewriteRule ^gcc/build-operate-transfer$     pages/GCC/BuildOperateTransfer.html      [L]
+RewriteRule ^gcc/thought-leadership$         pages/GCC/ThoughtLeadership.html         [L]
+RewriteRule ^gcc/blogs/(.+)$                 pages/GCC/GccBlogs/$1.html               [L]
+RewriteRule ^gcc/case-studies/(.+)$          pages/GCC/GccCaseStudies/$1.html         [L]
+
+# ── Industries ───────────────────────────────────────────────
+RewriteRule ^industries/financial-services$  pages/Industries/FinancialServices.html  [L]
+RewriteRule ^industries/healthcare$          pages/Industries/Healthcare.html         [L]
+RewriteRule ^industries/manufacturing$       pages/Industries/Manufacturing.html      [L]
+RewriteRule ^industries/media$               pages/Industries/Media.html              [L]
+
+# ── Resources ────────────────────────────────────────────────
+RewriteRule ^resources/insights$             pages/Resources/Insights.html            [L]
+RewriteRule ^resources/research$             pages/Resources/ResourcesHub.html        [L]
+RewriteRule ^resources/case-studies$         pages/Resources/CaseStudy.html           [L]
+RewriteRule ^resources/events$               pages/Resources/Events.html              [L]
+RewriteRule ^resources/news$                 pages/Resources/News.html                [L]
+RewriteRule ^resources/(blogs|case-studies|events|news|webinars)/(.+)$ pages/Resources/$1/$2.html [L]
+
+# ── Company ──────────────────────────────────────────────────
+RewriteRule ^company/about$                  pages/Company/About.html                 [L]
+RewriteRule ^company/our-journey$            pages/Company/OurJourney.html            [L]
+RewriteRule ^company/awards$                 pages/Company/AwardsRecognitions.html    [L]
+RewriteRule ^company/partners$               pages/Company/Partners.html              [L]
+RewriteRule ^company/leadership$             pages/Company/Leadership.html            [L]
+
+# ── Careers ──────────────────────────────────────────────────
+RewriteRule ^careers/life-at-parkar$         pages/Careers/LifeAtParkar.html          [L]
+RewriteRule ^careers/open-positions$         pages/Careers/OpenPositions.html         [L]
+RewriteRule ^careers/team-highlights$        pages/Careers/TeamHighlights.html        [L]
+RewriteRule ^careers/team-highlights/(.+)$   pages/Careers/TeamHighlights/$1.html     [L]
+
+# ── Contact ──────────────────────────────────────────────────
+RewriteRule ^contact$                        pages/Contact.html                       [L]
+
+# ── Gzip & caching ──────────────────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css                    "access plus 1 year"
+    ExpiresByType application/javascript      "access plus 1 year"
+    ExpiresByType image/png                   "access plus 1 year"
+    ExpiresByType image/jpeg                  "access plus 1 year"
+    ExpiresByType image/svg+xml               "access plus 1 year"
+    ExpiresByType font/woff2                  "access plus 1 year"
+    ExpiresByType text/html                   "access plus 1 hour"
+</IfModule>
+
+# ── Security headers ────────────────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

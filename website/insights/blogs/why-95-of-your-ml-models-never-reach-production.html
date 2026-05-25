@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 95% Problem: What's Killing Your ML Deployments | Parkar</title>
+  <meta name="description" content="95% of ML models never reach production. Four structural gaps — production-blind development, unclear ownership, late-stage governance, and skills mismatch — are keeping your models stuck in notebooks. Here's how to fix the architecture." />
+  <meta property="og:title" content="The 95% Problem: What's Killing Your ML Deployments | Parkar" />
+  <meta property="og:description" content="Why most enterprise ML programmes fail at deployment — and the structural fix to get models into production." />
+  <link rel="icon" href="../../assets/icons/favicon.png" />
+  <link rel="apple-touch-icon" sizes="256x256" href="../../assets/icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/navbar.css" />
+  <link rel="stylesheet" href="../../css/footer.css" />
+  <link rel="stylesheet" href="../../css/article-detail.css?v=20260417" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NXHZDWK');</script>
+  <!-- End Google Tag Manager -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The 95% Problem: What's Killing Your ML Deployments",
+  "url": "https://www.parkar.in/insights/blogs/why-95-of-your-ml-models-never-reach-production",
+  "datePublished": "Mar 20, 2026",
+  "dateModified": "Mar 20, 2026",
+  "author": {
+    "@type": "Organization",
+    "name": "Parkar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Parkar",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.parkar.in/assets/Parkar_logo.png"
+    }
+  },
+  "description": "95% of ML models never reach production. Four structural gaps \u2014 production-blind development, unclear ownership, late-stage governance, and skills mismatch \u2014 are keeping your models stuck in notebooks. Here's how to fix the architecture.",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.parkar.in/insights/blogs/why-95-of-your-ml-models-never-reach-production"
+  }
+}
+</script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXHZDWK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="navbar-placeholder"></div>
+  <main>
+    <section class="art-hero">
+      <img class="art-hero-img" src="../../assets/resources/blog-95-percent-ml-deployments.jpg" alt="" aria-hidden="true" />
+      <div class="art-hero-overlay" aria-hidden="true"></div>
+      <div class="art-hero-inner">
+        <div class="art-meta">
+          <span class="art-tag">Blog</span>
+          <span class="art-date">Mar 20, 2026</span>
+        </div>
+        <h1>The 95% Problem: What's Killing Your ML Deployments</h1>
+      </div>
+    </section>
+    <div class="art-breadcrumb">
+      <a href="/insights/research">Resources</a> / <a href="/insights/research">Blogs</a> / The 95% Problem
+    </div>
+    <div class="art-layout">
+    <!-- LEFT: TOC sidebar -->
+    <aside class="art-toc">
+      <div class="art-toc-title">Table of Content</div>
+      <div class="art-toc-links"><ul class="art-toc-list" id="tocList"></ul></div>
+      <div class="art-share">
+        <span class="art-share-label">Share</span>
+        <a href="https://www.linkedin.com/company/parkar-digital/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://twitter.com/ParkarDigital" target="_blank" rel="noopener" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.facebook.com/lifeatParkar/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://wa.me/?text=Check%20out%20this%20article%20from%20Parkar" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </aside>
+
+    <!-- RIGHT: Article body -->
+    <article class="art-body">
+      <p>There is a number that follows every data leader into every budget conversation, board presentation, and hiring decision they make. Gartner first published it. The industry repeated it and somewhere along the way, the people living inside it stopped being surprised by it.</p>
+      <p><strong>95% percent of ML models never reach production.</strong></p>
+      <p>These numbers have been absorbed into how data organisations operate and are now accepted as an industry condition rather than an organisational failure.</p>
+      <p>Organisations are funding data science teams, building feature pipelines, and investing in compute infrastructure. Yet the majority of what those investments produce still dies in a notebook, model registry, or compliance queue. The hard technical work gets done, the model passes every check, and yet deployment remains the uncrossable line.</p>
+
+      <h2>The Structural Gaps That Keep Most ML Models from Reaching Production</h2>
+      <p><strong>Models are designed without considering production requirements</strong> &mdash; Data science teams often focus on improving accuracy in controlled environments without considering how the model will run in production. Complex architectures, fragile preprocessing pipelines, and strict latency requirements make deployment difficult. As a result, complex models become difficult to deploy and remain stuck in experimentation.</p>
+      <p><strong>No team clearly owns the journey from validated model to production deployment</strong> &mdash; Many organizations never define who is responsible for taking a model from validation to production. Without clear ownership, models often remain stuck between teams and never get deployed.</p>
+      <p><strong>Governance and compliance reviews appear only after the model is built</strong> &mdash; Compliance and risk teams are often involved only at the final stage of development. Missing documentation, lack of explainability, or untracked sensitive data can block deployment, forcing teams to redo work that could have been addressed earlier.</p>
+      <p><strong>Skill gap exists between data science and production engineering</strong> &mdash; Teams can build ML models but lack the expertise to operationalise them. Deployment requires infrastructure, monitoring, retraining pipelines, and governance controls. Without this operational capability, models remain in development environments instead of running in real systems.</p>
+
+      <h2>Organisational Cost of ML Models That Never Go Live</h2>
+      <p>Most organisations are not tracking how much they have spent on models that never went live. Engineering time, compute costs, and platform licences are consumed by development cycles that end in a model registry rather than a business process. That cost accumulates across every failed deployment cycle and rarely appears on any dashboard.</p>
+      <p>When ML programmes consistently fall short in production impact, the data function loses internal credibility, and budget conversations get harder. Stakeholders stop waiting and start working around the data team, buying packaged AI tools, building their own analytics, falling back on manual processes that were supposed to be retired.</p>
+      <p>The talent cost follows. Senior data scientists who spend 18 months watching their work stall between validation and deployment leave for organisations where models reach production. Then the vacancy gets filled into the same broken architecture.</p>
+      <p>The 95% failure rate is the number that surfaces in the conversation about whether the data function deserves its budget next year.</p>
+
+      <blockquote>
+        <p>"We kept funding the next model, the next pipeline, the next platform &mdash; and still nothing reached production. The problem was never talent. It was the architecture we were asking them to work inside."</p>
+      </blockquote>
+
+      <!-- CTA 1: Dark background -->
+      <div class="blog-cta blog-cta-1">
+        <div class="blog-cta-content">
+          <h3>Explore This Further</h3>
+          <p>Let's discuss what this means for your ML programme.</p>
+        </div>
+        <a href="/contact" class="blog-cta-btn">Book a Call</a>
+      </div>
+
+      <h2>Operational Changes That Enable ML Models to Reach Production</h2>
+      <p>Moving ML models into production requires more than building better models. It requires operational changes across how models are developed, deployed, and governed.</p>
+      <p><strong>Build production requirements into the model before development begins</strong> &mdash; Define latency thresholds, infrastructure constraints, and schema requirements before the first training run starts. When these production conditions are part of the development brief from the beginning, models are built to run in real systems and move into deployment more smoothly.</p>
+      <p><strong>Assign a single owner to the deployment pipeline</strong> &mdash; Assign one accountable owner for moving the model from validation to a live endpoint. When an ML engineer owns the deployment specification, pipeline build, and production SLA, the handoff between teams becomes clear and models move through deployment more reliably.</p>
+      <p><strong>Embed governance into the development pipeline</strong> &mdash; Integrate governance controls into the development workflow so data lineage, PII classification, and access permissions are recorded from the first training run. When compliance reviews occur later, the required documentation and audit trail are already available.</p>
+      <p><strong>Close the skill gap with a dedicated MLOps function</strong> &mdash; Create a dedicated role or team responsible for the operational work around ML models, including deployment pipelines, inference services, monitoring, and retraining processes. This function connects data science with platform engineering, enabling models to move from development into reliable production systems.</p>
+
+      <h2>Parkar's Position on This</h2>
+      <p>Leaders who have closed this gap made one decision before making any technology decision: they've stopped treating the space between model validation and production deployment as a coordination problem and rebuilt their architecture around it.</p>
+      <p>This requires accepting a short-term slowdown in the model development pipeline to build infrastructure that makes production deployment repeatable. The organisations that made the call are not running the same PoC cycle twelve months later.</p>
+      <p>At Parkar, our data platform practice focuses on this exact layer&mdash;building governance architecture at the foundation layer, implementing MLOps pipelines that move models from validation into live production endpoints, and operationalising AI inside the workflows where decisions are made.</p>
+      <p>If your ML programme is producing results in development but not in business operations, that's a structural problem with a structural fix. Reach out to us and let's build the architecture that gets your models into production.</p>
+
+      <!-- CTA 3: Teal -->
+      <div class="blog-cta blog-cta-3">
+        <div class="blog-cta-content">
+          <h3>Explore This Further</h3>
+          <p>Let's Discuss What This Means for Your Business</p>
+        </div>
+        <a href="/contact" class="blog-cta-btn">Book a Call</a>
+      </div>
+    </article>
+    </div><!-- /.art-layout -->
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/navbar.js"></script>
+  <script src="../../js/article-toc.js"></script>
+</body>
+</html>

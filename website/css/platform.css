@@ -1,0 +1,826 @@
+/* =============================================
+   PARKAR.IN — Vector Platform Page Styles
+   css/platform.css
+   ============================================= */
+
+/* ══════════════════════════════════════════════
+   HERO — Platform Cards
+   ══════════════════════════════════════════════ */
+.plat-hero {
+  position: relative;
+  background: var(--vec-bg);
+  min-height: 100vh;
+  padding-top: 80px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.plat-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hero text */
+.plat-hero-content {
+  text-align: center;
+  max-width: 780px;
+  margin-bottom: 64px;
+}
+.plat-hero-content h1 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 4vw, 56px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-top: 16px;
+}
+.plat-hero-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.62);
+  margin-bottom: 36px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Platform Cards Grid */
+.plat-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  gap: 16px;
+  width: 100%;
+  max-width: 1100px;
+  align-items: stretch;
+  min-height: 380px;
+}
+.plat-cards-grid-mob { display: none; }
+
+.plat-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(10,16,35,0.9);
+  border: 1px solid rgba(255,255,255,0.09);
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.plat-card:hover {
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-3px);
+}
+
+/* Card background image */
+.plat-card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.plat-card-bg.main {
+  object-position: center;
+  opacity: 0.85;
+}
+.plat-card:hover .plat-card-bg { opacity: 0.85; }
+
+/* Card glow overlay at top */
+.plat-card-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 60%;
+  background: linear-gradient(to bottom, rgba(58,91,217,0.18) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.plat-card.uds .plat-card-glow {
+  background: linear-gradient(to bottom, rgba(27,174,159,0.12) 0%, transparent 100%);
+}
+
+/* Card content overlay at bottom */
+.plat-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px 24px 24px;
+  background: linear-gradient(to top, rgba(5,9,20,0.95) 0%, rgba(5,9,20,0.6) 70%, transparent 100%);
+}
+.plat-card-content.center {
+  text-align: center;
+  padding-bottom: 32px;
+}
+.plat-card-title {
+  font-family: var(--font-head);
+  font-size: clamp(16px, 1.6vw, 22px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+.plat-card-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+/* Center card (Unify) - floating icons */
+.plat-float-icon {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+.plat-float-icon.fi-1 {
+  top: 18px; left: 18px;
+  animation: platFloat 3.8s ease-in-out infinite;
+}
+.plat-float-icon.fi-2 {
+  top: 14px; left: 50%;
+  transform: translateX(-50%);
+  animation: platFloat 4.2s ease-in-out infinite 0.6s;
+}
+.plat-float-icon.fi-3 {
+  top: 18px; right: 18px;
+  animation: platFloat 3.6s ease-in-out infinite 1.1s;
+}
+.plat-float-icon.fi-4 {
+  top: 50%; right: 14px;
+  transform: translateY(-50%);
+  animation: platFloat 4s ease-in-out infinite 1.7s;
+}
+.plat-float-icon.fi-5 {
+  top: 50%; left: 14px;
+  transform: translateY(-50%);
+  animation: platFloat 3.9s ease-in-out infinite 0.3s;
+}
+
+/* Bar chart in STO card */
+.plat-bar-wrap {
+  position: absolute;
+  right: 16px;
+  bottom: 72px;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+.plat-bar-pct {
+  width: 42px;
+  height: auto;
+  animation: platFloat 3.5s ease-in-out infinite;
+}
+.plat-bar-img {
+  width: 40px;
+  height: auto;
+}
+
+@keyframes platFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+.plat-float-icon.fi-2 { animation-name: platFloatCenter; }
+@keyframes platFloatCenter {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(-8px); }
+}
+.plat-float-icon.fi-4 { animation-name: platFloatRight; }
+@keyframes platFloatRight {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50%       { transform: translateY(-50%) translateX(-5px); }
+}
+.plat-float-icon.fi-5 { animation-name: platFloatLeft; }
+@keyframes platFloatLeft {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50%       { transform: translateY(-50%) translateX(5px); }
+}
+
+
+/* ══════════════════════════════════════════════
+   EMPOWERING — 3 Challenge Cards
+   ══════════════════════════════════════════════ */
+.plat-empower {
+  padding: 100px 0;
+  background: #070d1a;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.plat-empower-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.plat-empower-head h2 {
+  font-family: var(--font-head);
+  font-size: clamp(24px, 3.2vw, 42px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.plat-empower-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 56px;
+}
+
+/* lp-stroke-grad style: gradient border card */
+.plat-emp-card {
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(79,114,255,0.35) 0%, rgba(27,174,159,0.25) 50%, rgba(107,79,187,0.3) 100%);
+  padding: 1.5px;
+}
+.plat-emp-stroke {
+  border-radius: calc(16px - 1.5px);
+  background: #0c1323;
+  height: 100%;
+}
+.plat-emp-inner {
+  padding: 32px 28px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+.plat-emp-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.plat-emp-icon img { width: 50px; height: 50px; object-fit: contain; }
+.plat-emp-body h3 {
+  font-family: var(--font-head);
+  font-size: clamp(15px, 1.5vw, 18px);
+  font-weight: 700;
+  color: var(--vec-teal);
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+.plat-emp-body h3 span {
+  color: rgba(255,255,255,0.85);
+}
+.plat-emp-body p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.55);
+}
+
+.plat-empower-cta {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* ══════════════════════════════════════════════
+   STREAMLINE OPERATIONS — Full-width SVG / Light section
+   ══════════════════════════════════════════════ */
+.plat-streamline {
+  position: relative;
+  background: #ffffff;
+  padding: 80px 0 0;
+  overflow: hidden;
+}
+
+/* Decorative border lines (like case-studies e-book) */
+.plat-streamline-lines { pointer-events: none; }
+.psl-line {
+  position: absolute;
+  background: rgba(0,0,0,0.06);
+}
+.psl-line.bottom { bottom: 0; left: 0; right: 0; height: 1px; }
+.psl-line.left   { left: 40px; top: 0; bottom: 0; width: 1px; }
+.psl-line.top    { top: 0; left: 0; right: 0; height: 1px; }
+.psl-line.news   { right: 40px; top: 0; bottom: 0; width: 1px; }
+
+.plat-streamline-head {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.plat-streamline-head h2 {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 3vw, 40px);
+  font-weight: 700;
+  color: #0a0f1c;
+  line-height: 1.2;
+}
+
+.plat-streamline-visual {
+  text-align: center;
+}
+.plat-sv-desk {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.plat-sv-mob { display: none; }
+
+
+/* ══════════════════════════════════════════════
+   READY FOR TRANSFORMATION — CTA Banner
+   ══════════════════════════════════════════════ */
+.plat-readiness-cta {
+  position: relative;
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0a1535 0%, #091228 50%, #0a1535 100%);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Decorative animated border lines */
+.plat-cta-lines { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.pcl {
+  position: absolute;
+  overflow: hidden;
+}
+.pcl.left   { left: 0; top: 0; bottom: 0; width: 1px; }
+.pcl.right  { right: 0; top: 0; bottom: 0; width: 1px; }
+.pcl.top    { top: 0; left: 0; right: 0; height: 1px; }
+.pcl.bottom { bottom: 0; left: 0; right: 0; height: 1px; }
+.pcl-inner {
+  background: linear-gradient(180deg, transparent 0%, rgba(79,114,255,0.8) 50%, transparent 100%);
+}
+.pcl-inner.v1, .pcl-inner.v3 {
+  width: 1px; height: 40%;
+  animation: platLineV 3s linear infinite;
+}
+.pcl-inner.v3 { animation-delay: -1.5s; }
+.pcl-inner.h, .pcl-inner.h2 {
+  height: 1px; width: 25%;
+  background: linear-gradient(90deg, transparent 0%, rgba(79,114,255,0.8) 50%, transparent 100%);
+  animation: platLineH 4s linear infinite;
+}
+.pcl-inner.h2 { animation-delay: -2s; animation-direction: reverse; }
+
+@keyframes platLineV {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(300%); }
+}
+@keyframes platLineH {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(500%); }
+}
+
+.plat-readiness-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.plat-readiness-inner h2 {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 3vw, 38px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+}
+
+/* White button with blue text */
+.plat-btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: var(--vec-blue);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.3px;
+}
+.plat-btn-white:hover {
+  background: #f0f4ff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(58,91,217,0.2);
+}
+
+
+/* ══════════════════════════════════════════════
+   WHY VECTOR — Discover Transformative Power
+   ══════════════════════════════════════════════ */
+.plat-why {
+  padding: 100px 0 60px;
+  background: var(--vec-bg);
+  overflow: hidden;
+}
+
+/* Intro */
+.plat-why-intro {
+  max-width: 560px;
+  margin-bottom: 80px;
+}
+.plat-why-intro h2 {
+  font-family: var(--font-head);
+  font-size: clamp(26px, 3.5vw, 46px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.plat-why-intro p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 32px;
+}
+
+/* Feature block rows */
+.plat-why-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.plat-why-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 520px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 80px 0;
+}
+.plat-why-block:first-child { padding-top: 0; }
+.plat-why-block:last-child  { border-bottom: none; }
+
+/* Text side */
+.plat-why-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 80px;
+}
+.plat-why-text h3 {
+  font-family: var(--font-head);
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 28px;
+}
+
+/* Bullet list */
+.plat-bullets {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.plat-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.plat-bullets li img {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.plat-bullets li span {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.62);
+}
+
+/* Card illustration side */
+.plat-why-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plat-illu-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: #0d1428;
+  border: 1px solid rgba(255,255,255,0.08);
+  animation: vecFloatSlow 4s ease-in-out infinite;
+}
+.plat-illu-wrap:hover { animation-play-state: paused; }
+
+.plat-illu-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.plat-illu-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.plat-illu-lines img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+/* Overlaid element images */
+.plat-ele {
+  position: absolute;
+  pointer-events: none;
+  max-width: none;
+}
+
+/* Block 1 (Unified Data Integration) element positions */
+.elo-1  { width: 13%; top: 8%;  left: 8%;  animation: platFloat 3.5s ease-in-out infinite; }
+.elo-2  { width: 20%; top: 5%;  right: 8%; animation: platFloat 4s ease-in-out infinite 0.5s; }
+.elo-7  { width: 10%; top: 30%; left: 10%; animation: platFloat 3.8s ease-in-out infinite 1s; }
+.elo-3  { width: 10%; top: 28%; right: 12%; animation: platFloat 4.2s ease-in-out infinite 1.4s; }
+.elo-5  { width: 18%; top: 48%; right: 6%;  animation: platFloat 3.7s ease-in-out infinite 0.8s; }
+.elo-4  { width: 16%; bottom: 22%; left: 6%; animation: platFloat 4.5s ease-in-out infinite 0.3s; }
+.elo-6  { width: 20%; bottom: 15%; right: 8%; animation: platFloat 3.9s ease-in-out infinite 1.2s; }
+.elo-8  { width: 14%; bottom: 10%; left: 35%; animation: platFloat 4.1s ease-in-out infinite 0.7s; }
+.elo-dash { width: 55%; bottom: 0; left: 50%; transform: translateX(-50%); opacity: 0.7; }
+
+/* Block 2 (AI Insights) element positions */
+.e-anomaly  { width: 55%; top: 6%;  left: 50%; transform: translateX(-50%); animation: platFloat 4s ease-in-out infinite; }
+.e-dash-ai  { width: 90%; bottom: 0; left: 50%; transform: translateX(-50%); opacity: 0.8; }
+.e-saved    { width: 28%; top: 8%;  left: 6%;  animation: platFloat 3.8s ease-in-out infinite 0.6s; }
+
+/* Block 3 (Metrics-Driven) element positions */
+.e-cloud-spent    { width: 32%; top: 8%;  left: 5%;  animation: platFloat 4s ease-in-out infinite; }
+.e-web-uptime     { width: 28%; top: 6%;  right: 5%; animation: platFloat 3.6s ease-in-out infinite 0.4s; }
+.e-web-up-dash    { width: 42%; bottom: 22%; left: 50%; transform: translateX(-50%); animation: platFloat 4.2s ease-in-out infinite 0.9s; }
+.e-cloud-dash     { width: 36%; bottom: 8%;  left: 4%; animation: platFloat 3.9s ease-in-out infinite 1.3s; }
+.e-total-hrs      { width: 38%; bottom: 8%;  right: 4%; animation: platFloat 4.1s ease-in-out infinite 0.7s; }
+
+/* Block 4 (Intelligent Automation) element positions */
+.e-ia-auto  { width: 55%; top: 6%;  left: 50%; transform: translateX(-50%); animation: platFloat 4s ease-in-out infinite; }
+.e-ia       { width: 36%; top: 8%;  left: 6%;  animation: platFloat 3.7s ease-in-out infinite 0.5s; }
+.e-home1    { width: 42%; bottom: 22%; left: 4%;   animation: platFloat 4.3s ease-in-out infinite 0.8s; }
+.e-home     { width: 42%; bottom: 22%; right: 4%;  animation: platFloat 3.8s ease-in-out infinite 1.2s; }
+.e-recv1    { width: 28%; top: 38%; left: 4%;  animation: platFloat 3.6s ease-in-out infinite 0.3s; }
+.e-recv2    { width: 28%; top: 38%; right: 4%; animation: platFloat 4.4s ease-in-out infinite 1s; }
+.e-hex      { width: 18%; top: 14%; right: 8%; animation: platFloat 3.9s ease-in-out infinite 0.6s; }
+.e-sq       { width: 14%; bottom: 12%; right: 6%; animation: platFloat 4.1s ease-in-out infinite 1.4s; }
+
+/* Bottom CTA */
+.plat-why-bottom-cta {
+  display: flex;
+  justify-content: center;
+  padding: 60px 40px 0;
+}
+
+
+/* ══════════════════════════════════════════════
+   CUSTOMER SUPPORT — 4 Cards
+   ══════════════════════════════════════════════ */
+.plat-support {
+  padding: 100px 0;
+  background: var(--vec-bg-2);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.plat-support-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.plat-support-head h2 {
+  font-family: var(--font-head);
+  font-size: clamp(26px, 3.2vw, 42px);
+  font-weight: 700;
+  color: #fff;
+}
+
+.plat-support-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.plat-sup-card {
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(79,114,255,0.3) 0%, rgba(27,174,159,0.2) 50%, rgba(107,79,187,0.25) 100%);
+  padding: 1.5px;
+  transition: transform 0.3s ease;
+}
+.plat-sup-card:hover { transform: translateY(-4px); }
+
+.plat-sup-stroke {
+  border-radius: calc(14px - 1.5px);
+  background: #0c1323;
+  height: 100%;
+}
+.plat-sup-inner {
+  padding: 28px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  height: 100%;
+}
+.plat-sup-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.plat-sup-inner span {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.5;
+}
+
+
+/* ══════════════════════════════════════════════
+   EXPERIENCE VECTOR — CTA Banner
+   ══════════════════════════════════════════════ */
+.plat-experience-cta {
+  position: relative;
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0a1535 0%, #091228 50%, #0a1535 100%);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.plat-experience-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.plat-experience-inner h2 {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 3vw, 38px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+}
+.plat-experience-inner p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.58);
+  margin-bottom: 12px;
+}
+
+
+/* ══════════════════════════════════════════════
+   SECURITY — Enterprise-grade Cards
+   ══════════════════════════════════════════════ */
+.plat-security {
+  padding: 100px 0;
+  background: var(--vec-bg);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.plat-security-head {
+  margin-bottom: 56px;
+}
+.plat-security-head h2 {
+  font-family: var(--font-head);
+  font-size: clamp(26px, 3.2vw, 42px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.plat-security-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.plat-sec-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 32px 28px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.plat-sec-card:hover {
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-3px);
+}
+
+.plat-sec-icon {
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.plat-sec-icon img { width: 50px; height: 50px; object-fit: contain; }
+
+.plat-sec-title {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+.plat-sec-card p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.52);
+}
+
+/* Last row (5 cards → 3+2): center the bottom 2 */
+.plat-security-grid .plat-sec-card:nth-child(4) {
+  grid-column: 1;
+}
+.plat-security-grid .plat-sec-card:nth-child(5) {
+  grid-column: 2;
+}
+
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .plat-cards-grid { grid-template-columns: 1fr 1.3fr 1fr; min-height: 320px; }
+  .plat-why-text { padding-right: 48px; }
+}
+
+@media (max-width: 960px) {
+  .plat-empower-grid  { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto 56px; }
+  .plat-support-grid  { grid-template-columns: repeat(2, 1fr); }
+  .plat-security-grid { grid-template-columns: repeat(2, 1fr); }
+  .plat-security-grid .plat-sec-card:nth-child(4) { grid-column: auto; }
+  .plat-security-grid .plat-sec-card:nth-child(5) { grid-column: auto; }
+
+  .plat-why-block {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 40px;
+    padding: 60px 0;
+  }
+  .plat-why-text { padding-right: 0; }
+  .plat-illu-wrap { max-width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .plat-hero-inner { padding: 60px 20px 0; }
+  .plat-cards-grid { display: none; }
+  .plat-cards-grid-mob {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .plat-cards-grid-mob .plat-card { min-height: 240px; }
+  .plat-streamline { padding: 60px 0 0; }
+  .plat-sv-desk { display: none; }
+  .plat-sv-mob  { display: block; width: 100%; }
+  .plat-support-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .plat-security-grid { grid-template-columns: 1fr; }
+  .plat-why-intro { max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .plat-hero-content h1 { font-size: 26px; }
+  .plat-cards-grid-mob { grid-template-columns: 1fr; }
+  .plat-cards-grid-mob .plat-card { min-height: 220px; }
+  .plat-empower-grid  { grid-template-columns: 1fr; }
+  .plat-readiness-inner h2 { font-size: 20px; }
+  .plat-why-bottom-cta { padding: 40px 20px 0; }
+}
