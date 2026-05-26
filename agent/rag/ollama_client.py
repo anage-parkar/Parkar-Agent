@@ -1,5 +1,5 @@
 """
-Thin client over the local Ollama HTTP API.
+Thin client over the Ollama HTTP API.
 
 Two responsibilities:
   * embed()       -> turn text into vectors with nomic-embed-text
@@ -30,6 +30,11 @@ class OllamaError(RuntimeError):
     """Raised when Ollama is unreachable or returns an error."""
 
 
+# Always sent so a free-tier ngrok tunnel returns JSON instead of its HTML
+# browser-warning interstitial. Harmless against a direct Ollama endpoint (ignored).
+_HEADERS = {"ngrok-skip-browser-warning": "true"}
+
+
 def _url(path: str) -> str:
     return f"{OLLAMA_HOST.rstrip('/')}{path}"
 
@@ -37,7 +42,9 @@ def _url(path: str) -> str:
 def health() -> dict:
     """Return basic Ollama reachability + whether required models are present."""
     try:
-        resp = requests.get(_url("/api/tags"), timeout=10)
+        resp = requests.get(
+            _url("/api/tags"), headers=_HEADERS, timeout=max(REQUEST_TIMEOUT, 120)
+        )
         resp.raise_for_status()
     except requests.RequestException as exc:  # pragma: no cover - network
         raise OllamaError(f"Cannot reach Ollama at {OLLAMA_HOST}: {exc}") from exc
@@ -75,6 +82,7 @@ def embed(text: str, task: str | None = "query") -> list[float]:
         resp = requests.post(
             _url("/api/embeddings"),
             json={"model": EMBED_MODEL, "prompt": _apply_prefix(text, task)},
+            headers=_HEADERS,
             timeout=REQUEST_TIMEOUT,
         )
         resp.raise_for_status()
@@ -109,7 +117,7 @@ def generate(prompt: str, system: str | None = None) -> str:
         payload["system"] = system
     try:
         resp = requests.post(
-            _url("/api/generate"), json=payload, timeout=REQUEST_TIMEOUT
+            _url("/api/generate"), json=payload, headers=_HEADERS, timeout=REQUEST_TIMEOUT
         )
         resp.raise_for_status()
     except requests.RequestException as exc:
@@ -131,6 +139,7 @@ def generate_stream(prompt: str, system: str | None = None) -> Iterator[str]:
         with requests.post(
             _url("/api/generate"),
             json=payload,
+            headers=_HEADERS,
             stream=True,
             timeout=REQUEST_TIMEOUT,
         ) as resp:

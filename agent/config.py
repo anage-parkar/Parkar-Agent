@@ -45,9 +45,10 @@ DOCX_DIR.mkdir(parents=True, exist_ok=True)
 VECTORDB_DIR.mkdir(parents=True, exist_ok=True)
 
 # ---------------------------------------------------------------------------
-# Ollama  (low-latency local inference)
+# Ollama  (remote inference)
 # ---------------------------------------------------------------------------
-OLLAMA_HOST = _env("OLLAMA_HOST", "http://localhost:11434")
+DEFAULT_OLLAMA_HOST = "https://nontransferable-semineurotically-homer.ngrok-free.dev"
+OLLAMA_HOST = _env("OLLAMA_HOST", DEFAULT_OLLAMA_HOST)
 # Generation model — llama3.2 (3B) chosen for lowest latency.
 LLM_MODEL = _env("LLM_MODEL", "llama3.2:latest")
 # Embedding model — nomic-embed-text (768-dim, fast, strong retrieval quality).
