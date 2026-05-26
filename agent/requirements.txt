@@ -1,0 +1,22 @@
+# Parkar RAG Agent — Python dependencies
+# Tested with Python 3.11–3.14. Ollama must be installed separately (https://ollama.com).
+
+# --- Document generation & parsing ---
+python-docx>=1.1.0
+
+# --- Vector database ---
+# Default store is a NumPy cosine index (rag/vectorstore.py) — no extra deps,
+# and it works on Python 3.14 where ChromaDB 1.5.x currently cannot import.
+# To use ChromaDB instead (Python <= 3.13), uncomment the next line:
+# chromadb>=1.0.0
+
+# --- API server ---
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+
+# --- HTTP / models ---
+requests>=2.31.0
+pydantic>=2.6.0
+
+# --- Utilities ---
+numpy>=1.26.0

@@ -297,9 +297,37 @@
     });
   }
 
+  /* ── Floating AI Assistant widget (all pages) ───────────────────────────── */
+  // Injects the RAG chat widget's CSS + JS using the same path resolution as
+  // the components above, so every page that loads components.js gets it.
+  function injectAgentWidget() {
+    const resolve = (path) =>
+      (_rootUrl && !_needsFileRemap) ? _rootUrl + path : _buildPrefix() + path;
+
+    if (!document.querySelector('link[data-parkar-agent]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = resolve('css/parkar-agent-widget.css');
+      link.setAttribute('data-parkar-agent', 'css');
+      document.head.appendChild(link);
+    }
+    if (!document.querySelector('script[data-parkar-agent]')) {
+      const script = document.createElement('script');
+      script.src = resolve('js/parkar-agent-widget.js');
+      script.defer = true;
+      script.setAttribute('data-parkar-agent', 'js');
+      // Optional: point the widget at a non-default API host, e.g.
+      //   window.PARKAR_AGENT_API = 'https://agent.parkar.in';
+      // set before this script runs, or edit the default in the widget file.
+      document.body.appendChild(script);
+    }
+  }
+
   /* ── Boot ────────────────────────────────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', async () => {
     rewritePageLinks(); // local dev + GitHub Pages only
+
+    injectAgentWidget();
 
     await Promise.all([
       loadComponent('navbar-placeholder', 'components/navbar.html'),
