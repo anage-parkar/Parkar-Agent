@@ -124,6 +124,8 @@ def _strip_urls(text: str) -> str:
     text = _MD_LINK_RE.sub(_md_sub, text)
     text = _BARE_URL_RE.sub("", text)
     text = _BARE_DOMAIN_RE.sub("", text)
+    # Strip Markdown heading markers (##, ###, etc.) — frontend shows them as raw #
+    text = re.sub(r'^#{1,6}\s+', '', text, flags=re.MULTILINE)
     # Clean up "on ." / "at ." / "via ." left after URL removal
     text = re.sub(r'\s+(?:on|at|via|through|from)\s+([,.\)])', r'\1', text)
     text = re.sub(r' {2,}', ' ', text)
