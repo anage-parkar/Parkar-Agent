@@ -20,8 +20,12 @@ from config import (
     EMBED_MODEL,
     LLM_MODEL,
     LLM_NUM_CTX,
+    LLM_NUM_PREDICT,
     LLM_TEMPERATURE,
+    LLM_TOP_P,
+    OLLAMA_FALLBACK_HOST,
     OLLAMA_HOST,
+    OLLAMA_KEEP_ALIVE,
     REQUEST_TIMEOUT,
 )
 
@@ -34,24 +38,66 @@ class OllamaError(RuntimeError):
 # browser-warning interstitial. Harmless against a direct Ollama endpoint (ignored).
 _HEADERS = {"ngrok-skip-browser-warning": "true"}
 
+# One reused session: pools the TCP/TLS connection so we don't pay a fresh
+# handshake to the (remote, tunnelled) Ollama on every embed/generate call.
+_SESSION = requests.Session()
+_SESSION.headers.update(_HEADERS)
 
-def _url(path: str) -> str:
-    return f"{OLLAMA_HOST.rstrip('/')}{path}"
+# Ordered list of endpoints to try. The free ngrok tunnel drops intermittently,
+# so we fall back to a local Ollama automatically. De-duplicated, empties dropped.
+_HOSTS = list(dict.fromkeys(h.rstrip("/") for h in (OLLAMA_HOST, OLLAMA_FALLBACK_HOST) if h))
+_TRIES_PER_HOST = 2          # retry once per host for transient tunnel SSL drops
+_preferred = 0               # index of the host that last worked — tried first
+
+
+def _ordered_hosts() -> list[int]:
+    return sorted(range(len(_HOSTS)), key=lambda i: 0 if i == _preferred else 1)
+
+
+def _open(method: str, path: str, *, timeout: int, stream: bool = False, **kw):
+    """Issue a request, failing over across _HOSTS. Returns an open Response
+    (caller reads/streams it). 'Sticks' to whichever host succeeds so we don't
+    keep hammering a dead tunnel on every call."""
+    global _preferred
+    last_exc: Exception | None = None
+    for idx in _ordered_hosts():
+        url = f"{_HOSTS[idx]}{path}"
+        for _ in range(_TRIES_PER_HOST):
+            try:
+                resp = _SESSION.request(method, url, timeout=timeout, stream=stream, **kw)
+                resp.raise_for_status()
+                _preferred = idx
+                return resp
+            except requests.RequestException as exc:
+                last_exc = exc
+    raise OllamaError(
+        f"All Ollama hosts failed ({', '.join(_HOSTS)}): {last_exc}"
+    ) from last_exc
+
+
+# Shared generation options. keep_alive keeps the model resident between calls;
+# num_predict caps output length — together these are the main latency levers.
+def _gen_options() -> dict:
+    return {
+        "temperature": LLM_TEMPERATURE,
+        "num_ctx": LLM_NUM_CTX,
+        "num_predict": LLM_NUM_PREDICT,
+        "top_p": LLM_TOP_P,
+    }
+
+
+def active_host() -> str:
+    """The endpoint currently preferred (last one that answered)."""
+    return _HOSTS[_preferred] if _HOSTS else ""
 
 
 def health() -> dict:
     """Return basic Ollama reachability + whether required models are present."""
-    try:
-        resp = requests.get(
-            _url("/api/tags"), headers=_HEADERS, timeout=max(REQUEST_TIMEOUT, 120)
-        )
-        resp.raise_for_status()
-    except requests.RequestException as exc:  # pragma: no cover - network
-        raise OllamaError(f"Cannot reach Ollama at {OLLAMA_HOST}: {exc}") from exc
-
+    resp = _open("GET", "/api/tags", timeout=max(REQUEST_TIMEOUT, 120))
     installed = {m.get("name", "") for m in resp.json().get("models", [])}
     return {
         "reachable": True,
+        "host": active_host(),
         "models_installed": sorted(installed),
         "llm_ready": LLM_MODEL in installed,
         "embed_ready": EMBED_MODEL in installed,
@@ -78,17 +124,16 @@ def _apply_prefix(text: str, task: str | None) -> str:
 
 def embed(text: str, task: str | None = "query") -> list[float]:
     """Embed a single string. `task` is 'query' (default), 'document', or None."""
-    try:
-        resp = requests.post(
-            _url("/api/embeddings"),
-            json={"model": EMBED_MODEL, "prompt": _apply_prefix(text, task)},
-            headers=_HEADERS,
-            timeout=REQUEST_TIMEOUT,
-        )
-        resp.raise_for_status()
-    except requests.RequestException as exc:
-        raise OllamaError(f"Embedding request failed: {exc}") from exc
-
+    resp = _open(
+        "POST",
+        "/api/embeddings",
+        json={
+            "model": EMBED_MODEL,
+            "prompt": _apply_prefix(text, task),
+            "keep_alive": OLLAMA_KEEP_ALIVE,
+        },
+        timeout=REQUEST_TIMEOUT,
+    )
     vector = resp.json().get("embedding")
     if not vector:
         raise OllamaError("Ollama returned an empty embedding.")
@@ -111,17 +156,12 @@ def generate(prompt: str, system: str | None = None) -> str:
         "model": LLM_MODEL,
         "prompt": prompt,
         "stream": False,
-        "options": {"temperature": LLM_TEMPERATURE, "num_ctx": LLM_NUM_CTX},
+        "keep_alive": OLLAMA_KEEP_ALIVE,
+        "options": _gen_options(),
     }
     if system:
         payload["system"] = system
-    try:
-        resp = requests.post(
-            _url("/api/generate"), json=payload, headers=_HEADERS, timeout=REQUEST_TIMEOUT
-        )
-        resp.raise_for_status()
-    except requests.RequestException as exc:
-        raise OllamaError(f"Generation request failed: {exc}") from exc
+    resp = _open("POST", "/api/generate", json=payload, timeout=REQUEST_TIMEOUT)
     return resp.json().get("response", "").strip()
 
 
@@ -131,19 +171,15 @@ def generate_stream(prompt: str, system: str | None = None) -> Iterator[str]:
         "model": LLM_MODEL,
         "prompt": prompt,
         "stream": True,
-        "options": {"temperature": LLM_TEMPERATURE, "num_ctx": LLM_NUM_CTX},
+        "keep_alive": OLLAMA_KEEP_ALIVE,
+        "options": _gen_options(),
     }
     if system:
         payload["system"] = system
     try:
-        with requests.post(
-            _url("/api/generate"),
-            json=payload,
-            headers=_HEADERS,
-            stream=True,
-            timeout=REQUEST_TIMEOUT,
+        with _open(
+            "POST", "/api/generate", json=payload, stream=True, timeout=REQUEST_TIMEOUT
         ) as resp:
-            resp.raise_for_status()
             for line in resp.iter_lines():
                 if not line:
                     continue

@@ -136,11 +136,16 @@ or via `data-api` on the injected tag / editing the default in the widget file.
 
 | Key | Default | Purpose |
 |-----|---------|---------|
-| `LLM_MODEL` | `llama3.2:latest` | Generation model |
+| `OLLAMA_HOST` | ngrok VM URL | Primary Ollama endpoint |
+| `OLLAMA_FALLBACK_HOST` | `http://localhost:11434` | Tried automatically when the primary is unreachable (set empty to disable) |
+| `LLM_MODEL` | `llama3.2:latest` | Generation model (`llama3.2:1b` for max speed) |
 | `EMBED_MODEL` | `nomic-embed-text:latest` | Embedding model |
 | `LLM_TEMPERATURE` | `0.2` | Lower = more factual |
-| `CHUNK_SIZE` / `CHUNK_OVERLAP` | `900` / `150` | Chunking (chars) |
-| `TOP_K` | `6` | Chunks fed to the LLM |
+| `LLM_NUM_PREDICT` | `320` | Max output tokens — main latency cap |
+| `OLLAMA_KEEP_ALIVE` | `30m` | Keeps the model warm between calls |
+| `CHUNK_SIZE` / `CHUNK_OVERLAP` | `600` / `100` | Chunking (chars) |
+| `TOP_K` | `4` | Chunks fed to the LLM (hybrid re-ranked) |
+| `MAX_PER_DOC` | `2` | Max chunks from one document |
 | `MIN_SIMILARITY` | `0.25` | Grounding floor |
 | `SERVER_PORT` | `8000` | API port |
 | `CORS_ORIGINS` | `*` | Allowed origins |

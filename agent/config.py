@@ -49,6 +49,11 @@ VECTORDB_DIR.mkdir(parents=True, exist_ok=True)
 # ---------------------------------------------------------------------------
 DEFAULT_OLLAMA_HOST = "https://nontransferable-semineurotically-homer.ngrok-free.dev"
 OLLAMA_HOST = _env("OLLAMA_HOST", DEFAULT_OLLAMA_HOST)
+# Fallback endpoint tried automatically when OLLAMA_HOST is unreachable (the
+# free-tier ngrok tunnel drops intermittently). Defaults to a local Ollama, so
+# the agent keeps answering even when the remote VM tunnel is down. Set to an
+# empty string to disable fallback.
+OLLAMA_FALLBACK_HOST = _env("OLLAMA_FALLBACK_HOST", "http://localhost:11434")
 # Generation model — llama3.2 (3B) chosen for lowest latency.
 LLM_MODEL = _env("LLM_MODEL", "llama3.2:latest")
 # Embedding model — nomic-embed-text (768-dim, fast, strong retrieval quality).
@@ -56,6 +61,15 @@ EMBED_MODEL = _env("EMBED_MODEL", "nomic-embed-text:latest")
 # Generation controls
 LLM_TEMPERATURE = float(_env("LLM_TEMPERATURE", "0.2"))
 LLM_NUM_CTX = int(_env("LLM_NUM_CTX", "4096"))
+# Hard cap on generated tokens. The single biggest latency lever on a CPU-only
+# box: without it the model can ramble to 500+ tokens (we measured a 51s answer).
+# A grounded KB answer rarely needs more than this.
+LLM_NUM_PREDICT = int(_env("LLM_NUM_PREDICT", "320"))
+# Nucleus sampling — kept tight alongside the low temperature for factual answers.
+LLM_TOP_P = float(_env("LLM_TOP_P", "0.9"))
+# How long Ollama keeps the model resident after a request. Keeping it warm
+# avoids a multi-second reload on every call (the box has RAM headroom for it).
+OLLAMA_KEEP_ALIVE = _env("OLLAMA_KEEP_ALIVE", "30m")
 REQUEST_TIMEOUT = int(_env("REQUEST_TIMEOUT", "120"))
 
 # ---------------------------------------------------------------------------
@@ -66,15 +80,18 @@ COLLECTION_NAME = _env("COLLECTION_NAME", "parkar_knowledge")
 # ---------------------------------------------------------------------------
 # Chunking
 # ---------------------------------------------------------------------------
-CHUNK_SIZE = int(_env("CHUNK_SIZE", "900"))        # characters per chunk
-CHUNK_OVERLAP = int(_env("CHUNK_OVERLAP", "150"))  # overlap between chunks
+CHUNK_SIZE = int(_env("CHUNK_SIZE", "600"))        # characters per chunk
+CHUNK_OVERLAP = int(_env("CHUNK_OVERLAP", "100"))  # overlap between chunks
 
 # ---------------------------------------------------------------------------
 # Retrieval
 # ---------------------------------------------------------------------------
-TOP_K = int(_env("TOP_K", "6"))                    # chunks fed to the LLM
+TOP_K = int(_env("TOP_K", "4"))                    # chunks fed to the LLM
 # Below this cosine similarity we treat the KB as not covering the question.
 MIN_SIMILARITY = float(_env("MIN_SIMILARITY", "0.25"))
+# Cap how many chunks from a single document can appear in the context, so one
+# long doc can't crowd out other relevant sources.
+MAX_PER_DOC = int(_env("MAX_PER_DOC", "2"))
 
 # ---------------------------------------------------------------------------
 # Server

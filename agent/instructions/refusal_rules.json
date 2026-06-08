@@ -1,0 +1,37 @@
+{
+  "_comment": "Pre-retrieval guardrails. If the user's message matches any pattern in a rule, the agent refuses immediately with that rule's message — no embedding, no LLM call. Patterns are Python regex, matched case-insensitively with re.search(). Edit freely and restart the server to apply. Keep patterns tight to avoid refusing genuine Parkar questions.",
+  "rules": [
+    {
+      "name": "arithmetic",
+      "patterns": [
+        "^\\s*[-+*/^().\\d\\s]+\\s*=?\\s*\\??\\s*$",
+        "\\bwhat\\s+(is|are)\\s+\\d+\\s*[-+*/x×÷]\\s*\\d+",
+        "\\b(calculate|compute|solve)\\b[^.?!]{0,30}\\b\\d"
+      ],
+      "message": "I'm Parkar's assistant, so I can't act as a calculator — I stick to questions about Parkar. Ask me about our services, platforms or policies!"
+    },
+    {
+      "name": "code-generation",
+      "patterns": [
+        "\\b(write|generate|create|implement|debug|fix|refactor|review)\\b[^.?!]{0,40}\\b(python|java|javascript|typescript|c\\+\\+|c#|golang|rust|php|ruby|sql|html|css|bash|powershell|shell\\s*script)\\b",
+        "\\b(write|generate|give\\s+me|show\\s+me)\\b[^.?!]{0,30}\\b(code|script|function|snippet|program|algorithm)\\b(?!\\s+of\\s+conduct)",
+        "```"
+      ],
+      "message": "I'm Parkar's assistant — I don't write or debug code. I can tell you about Parkar's engineering platforms and services, though!"
+    },
+    {
+      "name": "translation",
+      "patterns": [
+        "\\btranslate\\b[^.?!]{0,40}\\b(to|into|in)\\s+(english|spanish|french|german|hindi|chinese|japanese|arabic|portuguese|italian|russian|korean)\\b"
+      ],
+      "message": "I'm Parkar's assistant and can't help with translation — but I'm happy to answer anything about Parkar!"
+    },
+    {
+      "name": "creative-writing",
+      "patterns": [
+        "\\bwrite\\s+(me\\s+)?(a|an)\\b[^.?!]{0,20}\\b(poem|story|essay|song|joke|haiku|limerick|tagline|slogan)\\b"
+      ],
+      "message": "I'm Parkar's assistant, so creative writing isn't something I do — but ask me anything about Parkar!"
+    }
+  ]
+}
