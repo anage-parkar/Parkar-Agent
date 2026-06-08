@@ -83,11 +83,12 @@ def chat(req: ChatRequest) -> dict:
 @app.post("/chat/stream")
 def chat_stream(req: ChatRequest) -> StreamingResponse:
     top_k = req.top_k or config.TOP_K
-    stream, sources = get_retriever().answer_stream(req.message, top_k=top_k)
+    stream, sources, links = get_retriever().answer_stream(req.message, top_k=top_k)
 
     def event_gen():
-        # First event: the sources, so the UI can render citations immediately.
+        # Emit sources and links up front so the UI can render them immediately.
         yield f"event: sources\ndata: {json.dumps(sources)}\n\n"
+        yield f"event: links\ndata: {json.dumps(links)}\n\n"
         try:
             for token in stream:
                 yield f"event: token\ndata: {json.dumps(token)}\n\n"
