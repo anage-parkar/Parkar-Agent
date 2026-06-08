@@ -5,16 +5,18 @@
       "name": "arithmetic",
       "patterns": [
         "^\\s*[-+*/^().\\d\\s]+\\s*=?\\s*\\??\\s*$",
-        "\\bwhat\\s+(is|are)\\s+\\d+\\s*[-+*/x×÷]\\s*\\d+",
-        "\\b(calculate|compute|solve)\\b[^.?!]{0,30}\\b\\d"
+        "\\bwhat\\s+(is|are|s)\\b[^.?!]{0,15}\\d+\\s*[-+*/x×÷]\\s*\\d+",
+        "\\b(calculate|compute|solve|evaluate)\\b[^.?!]{0,30}\\b\\d",
+        "\\b(add|subtract|multiply|divide|sum|product|factorial|average)\\b[^.?!]{0,25}\\b(numbers?|\\d|digits?)"
       ],
       "message": "I'm Parkar's assistant, so I can't act as a calculator — I stick to questions about Parkar. Ask me about our services, platforms or policies!"
     },
     {
       "name": "code-generation",
       "patterns": [
-        "\\b(write|generate|create|implement|debug|fix|refactor|review)\\b[^.?!]{0,40}\\b(python|java|javascript|typescript|c\\+\\+|c#|golang|rust|php|ruby|sql|html|css|bash|powershell|shell\\s*script)\\b",
-        "\\b(write|generate|give\\s+me|show\\s+me)\\b[^.?!]{0,30}\\b(code|script|function|snippet|program|algorithm)\\b(?!\\s+of\\s+conduct)",
+        "\\b(write|generate|create|implement|debug|fix|refactor|review|provide|give|show|build|make|develop|produce|need|want|code|program)\\b[^.?!]{0,40}\\b(python|java|javascript|typescript|c\\+\\+|c#|golang|rust|php|ruby|sql|html|css|bash|powershell|shell\\s*script)\\b",
+        "\\b(write|generate|create|implement|provide|give|show|build|make|develop|produce|need|want)\\b[^.?!]{0,40}\\b(code|script|snippet|function|program|algorithm)\\b(?!\\s+of\\s+conduct)",
+        "\\b(python|java|javascript|typescript|c\\+\\+|c#|golang|rust|php|ruby)\\s+(code|script|program|function|snippet)\\b",
         "```"
       ],
       "message": "I'm Parkar's assistant — I don't write or debug code. I can tell you about Parkar's engineering platforms and services, though!"
